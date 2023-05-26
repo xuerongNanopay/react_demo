@@ -1,0 +1,17 @@
+.red {
+  color: aqua
+}
+
+.inputHobby {
+  width: 100%
+}
+
+.item:hover {
+  background-color: bisque;
+}
+.item>button {
+  visibility:hidden;
+}
+.item:hover>button {
+  visibility: visible;
+}
