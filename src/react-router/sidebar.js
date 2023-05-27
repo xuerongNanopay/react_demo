@@ -142,13 +142,13 @@ const Service2 = () => {
       </div>
     )
 }
+const news = [
+  { id: '1', title: "new1", content: "content1"},
+  { id: '2', title: "new2", content: "content2"},
+  { id: '3', title: "new3", content: "content3"}
+]
 
 const Service2News = () => {
-  const news = [
-    { id: 1, title: "new1", content: "content1"},
-    { id: 2, title: "new2", content: "content2"},
-    { id: 3, title: "new3", content: "content3"}
-  ]
   return (
     <>
       <h4>This is Service 2News</h4>
@@ -165,7 +165,7 @@ const Service2News = () => {
 
 const Service2NewDetail = () => {
   const { newsId } = useParams();
-  const { state: {id, title, content} } = useLocation();
+  const {id, title, content} = news.find(news => news.id === newsId)
   return (
     <>
       <p>This is detail of new: {newsId}</p>
