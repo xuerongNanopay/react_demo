@@ -153,8 +153,8 @@ const Service2News = () => {
     <>
       <h4>This is Service 2News</h4>
       <ul>
-        { news.map(n => {
-            return <li key={n.id} ><Link to={'' + n.id}>{n.title}</Link></li>
+        { news.map(news => {
+            return <li key={news.id} ><Link to={'' + news.id} state={{...news}}>{news.title}</Link></li>
           })
         }
       </ul>
@@ -165,9 +165,13 @@ const Service2News = () => {
 
 const Service2NewDetail = () => {
   const { newsId } = useParams();
+  const { state: {id, title, content} } = useLocation();
   return (
     <>
       <p>This is detail of new: {newsId}</p>
+      <p>id: {id}</p>
+      <p>title: {title}</p>
+      <p>content: {content}</p>
     </>
   )
 }
