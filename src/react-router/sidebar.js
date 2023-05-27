@@ -2,6 +2,7 @@ import React from 'react'
 import { FaBeer } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import { NavLink, Link, BrowserRouter, Route, Routes, useParams, Outlet, useOutletContext, useLocation, Redirect} from 'react-router-dom'
+import css from './sidebar.module.css'
 
 // Three ways to pass value to router:
 //  1. state property in Link/NavLink
@@ -15,26 +16,29 @@ const SideBar = () => {
       <div className="container-fluid bg-warning">
         <div className="row">
           {/* Side menu */}
-          <div className="bg-body col-auto col-md-4 col-lg-3 min-vh-100">
-            <div className="bg-info">
-            <a className="d-flex justify-content-center text-decoration-none">
-              <span className="fs-4 d-none d-sm-inline">SideMenu</span>
-            </a>
-            </div>
-            <ul className="nav nav-pills flex-column mt-2">
-              <li className="nav-item">
-                <NavLinkWrapper to="/service1" />
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link d-flex align-items-center" to="/service2" state={{ some: "value" }}>
-                  <IconContext.Provider value={{ className: '' }}>
-                    <FaBeer />
-                  </IconContext.Provider>
-                  <span className="ms-3 d-none d-sm-inline">GOTO Service 2</span>
-                </NavLink>
-              </li>
-            </ul>
+          <div className={`bg-body col-auto col-md-4 col-lg-3 min-vh-100`}>
+            <div className={`${css.sidebar}`}>
+              <div className={`bg-info`}>
+                <a className="d-flex justify-content-center text-decoration-none">
+                  <span className="fs-4 d-none d-sm-inline">SideMenu</span>
+                </a>
+              </div>
+              <ul className="nav nav-pills flex-column mt-2">
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link d-flex align-items-center" to="/service2" state={{ some: "value" }}>
+                    <IconContext.Provider value={{ className: '' }}>
+                      <FaBeer />
+                    </IconContext.Provider>
+                    <span className="ms-3 d-none d-sm-inline">GOTO Service 2</span>
+                  </NavLink>
+                </li>
+              </ul>
           </div>
+          </div>
+          {/* <div class="col-auto col-md-4 col-lg-3 min-vh-100"></div> */}
           <div className="col">
               <Routes>
                 <Route path="/" element={<Welcome />} />
@@ -116,6 +120,16 @@ const Service1 = ({a}) => {
   )
 }
 
+// const FixLayout = () => {
+//   return (
+//     <>
+//       <div className={css.}>
+
+//       </div>
+//     </>
+//   )
+// }
+
 const Service1_next = ({children}) => {
   console.log(children)
   return (
@@ -145,7 +159,40 @@ const Service2 = () => {
 const news = [
   { id: '1', title: "new1", content: "content1"},
   { id: '2', title: "new2", content: "content2"},
-  { id: '3', title: "new3", content: "content3"}
+  { id: '3', title: "new3", content: "content3"},
+  { id: '11', title: "new11", content: "content1"},
+  { id: '12', title: "new21", content: "content2"},
+  { id: '13', title: "new31", content: "content3"},
+  { id: '111', title: "new1", content: "content1"},
+  { id: '112', title: "new2", content: "content2"},
+  { id: '113', title: "new3", content: "content3"},
+  { id: '1111', title: "new11", content: "content1"},
+  { id: '1112', title: "new21", content: "content2"},
+  { id: '1113', title: "new31", content: "content3"},
+  { id: '11111', title: "new1", content: "content1"},
+  { id: '11112', title: "new2", content: "content2"},
+  { id: '11113', title: "new3", content: "content3"},
+  { id: '111111', title: "new11", content: "content1"},
+  { id: '111112', title: "new21", content: "content2"},
+  { id: '11111z3', title: "new31", content: "content3"},
+  { id: '1', title: "new1", content: "content1"},
+  { id: '2', title: "new2", content: "content2"},
+  { id: '3', title: "new3", content: "content3"},
+  { id: '11', title: "new11", content: "content1"},
+  { id: '12', title: "new21", content: "content2"},
+  { id: '13', title: "new31", content: "content3"},
+  { id: '111', title: "new1", content: "content1"},
+  { id: '112', title: "new2", content: "content2"},
+  { id: '113', title: "new3", content: "content3"},
+  { id: '1111', title: "new11", content: "content1"},
+  { id: '1112', title: "new21", content: "content2"},
+  { id: '1113', title: "new31", content: "content3"},
+  { id: '11111', title: "new1", content: "content1"},
+  { id: '11112', title: "new2", content: "content2"},
+  { id: '11113', title: "new3", content: "content3"},
+  { id: '111111', title: "new11", content: "content1"},
+  { id: '111112', title: "new21", content: "content2"},
+  { id: '11111z3', title: "new31", content: "content3"}
 ]
 
 const Service2News = () => {
@@ -153,8 +200,8 @@ const Service2News = () => {
     <>
       <h4>This is Service 2News</h4>
       <ul>
-        { news.map(news => {
-            return <li key={news.id} ><Link to={'' + news.id} state={{...news}}>{news.title}</Link></li>
+        { news.map((news, idx) => {
+            return <li key={idx} ><Link to={'' + news.id} state={{...news}}>{news.title}</Link></li>
           })
         }
       </ul>

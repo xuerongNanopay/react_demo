@@ -1,0 +1,25 @@
+.flexBox-container {
+
+}
+
+.flexBox-item {
+
+}
+
+.flexBox-item-1 {
+
+}
+
+.flexBox-item-2 {
+  
+}
+
+.flexBox-item-3 {
+  
+}
+
+.sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0
+}
