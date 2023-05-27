@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaBeer } from "react-icons/fa";
 import { IconContext } from "react-icons";
-import { NavLink, Link, BrowserRouter, Route, Routes, useParams, Outlet, useOutletContext, useLocation} from 'react-router-dom'
+import { NavLink, Link, BrowserRouter, Route, Routes, useParams, Outlet, useOutletContext, useLocation, Redirect} from 'react-router-dom'
 
 // Three ways to pass value to router:
 //  1. state property in Link/NavLink
@@ -39,7 +39,13 @@ const SideBar = () => {
               <Routes>
                 <Route path="/" element={<Welcome />} />
                 <Route path="/service1" element={<Service1 a={1} />}/>
-                <Route path="/service2" element={<Service2/>}/>
+                <Route path="/service2" element={<Service2/>}>
+                  <Route index element={<Service2News/>} />
+                  <Route path="news" element={<Service2News/>}> 
+                    <Route path=":newsId" element={<Service2NewDetail/>}/>
+                  </Route>
+                  <Route path="messages" element={<Service2message/>} />
+                </Route>
                 <Route path="/nestRouter">
                   <Route path="next1" element={<Next1/>}/>
                 </Route>
@@ -128,8 +134,50 @@ const Service2 = () => {
     return (
       <div>
         <p className="fs2">Service22222</p>
+          <div className="d-flex flex-column">
+            <Link to="news" className="me-1 text-decoration-none">News</Link>
+            <Link to="messages" className="text-decoration-none">Messages</Link>
+          </div>
+          <Outlet/>
       </div>
     )
+}
+
+const Service2News = () => {
+  const news = [
+    { id: 1, title: "new1", content: "content1"},
+    { id: 2, title: "new2", content: "content2"},
+    { id: 3, title: "new3", content: "content3"}
+  ]
+  return (
+    <>
+      <h4>This is Service 2News</h4>
+      <ul>
+        { news.map(n => {
+            return <li key={n.id} ><Link to={'' + n.id}>{n.title}</Link></li>
+          })
+        }
+      </ul>
+      <Outlet />
+    </>
+  )
+}
+
+const Service2NewDetail = () => {
+  const { newsId } = useParams();
+  return (
+    <>
+      <p>This is detail of new: {newsId}</p>
+    </>
+  )
+}
+
+const Service2message = () => {
+  return (
+    <>
+      <h4>This is service 2 Message</h4>
+    </>
+  )
 }
 
 const Welcome = () => {
