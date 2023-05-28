@@ -50,12 +50,6 @@ const SideBar = () => {
                   </Route>
                   <Route path="messages" element={<Service2message/>} />
                 </Route>
-                <Route path="/nestRouter">
-                  <Route path="next1" element={<Next1/>}/>
-                </Route>
-                <Route path="/layoutRouter" element={<ALayout />}>
-                  <Route path="lnext1" element={<Lnext1/>}/>
-                </Route>
                 <Route path="*" element={<NotFound />} />
               </Routes>
           </div>
@@ -86,23 +80,6 @@ const ALayout = () => {
     </div>
   )
 }
-const Lnext1 = () => {
-  const { hello } = useOutletContext();
-  console.log(hello)
-  return (
-    <div>
-      <p>This is Lnext1</p>
-    </div>
-  )
-}
-
-const Next1 = () => {
-  return (
-    <div>
-      <p>This is Next Next1</p>
-    </div>
-  )
-}
 
 const Service1 = ({a}) => {
   return (
@@ -120,16 +97,6 @@ const Service1 = ({a}) => {
     </div>
   )
 }
-
-// const FixLayout = () => {
-//   return (
-//     <>
-//       <div className={css.}>
-
-//       </div>
-//     </>
-//   )
-// }
 
 const Service1_next = ({children}) => {
   console.log(children)
@@ -160,40 +127,7 @@ const Service2 = () => {
 const news = [
   { id: '1', title: "new1", content: "content1"},
   { id: '2', title: "new2", content: "content2"},
-  { id: '3', title: "new3", content: "content3"},
-  { id: '11', title: "new11", content: "content1"},
-  { id: '12', title: "new21", content: "content2"},
-  { id: '13', title: "new31", content: "content3"},
-  { id: '111', title: "new1", content: "content1"},
-  { id: '112', title: "new2", content: "content2"},
-  { id: '113', title: "new3", content: "content3"},
-  { id: '1111', title: "new11", content: "content1"},
-  { id: '1112', title: "new21", content: "content2"},
-  { id: '1113', title: "new31", content: "content3"},
-  { id: '11111', title: "new1", content: "content1"},
-  { id: '11112', title: "new2", content: "content2"},
-  { id: '11113', title: "new3", content: "content3"},
-  { id: '111111', title: "new11", content: "content1"},
-  { id: '111112', title: "new21", content: "content2"},
-  { id: '11111z3', title: "new31", content: "content3"},
-  { id: '1', title: "new1", content: "content1"},
-  { id: '2', title: "new2", content: "content2"},
-  { id: '3', title: "new3", content: "content3"},
-  { id: '11', title: "new11", content: "content1"},
-  { id: '12', title: "new21", content: "content2"},
-  { id: '13', title: "new31", content: "content3"},
-  { id: '111', title: "new1", content: "content1"},
-  { id: '112', title: "new2", content: "content2"},
-  { id: '113', title: "new3", content: "content3"},
-  { id: '1111', title: "new11", content: "content1"},
-  { id: '1112', title: "new21", content: "content2"},
-  { id: '1113', title: "new31", content: "content3"},
-  { id: '11111', title: "new1", content: "content1"},
-  { id: '11112', title: "new2", content: "content2"},
-  { id: '11113', title: "new3", content: "content3"},
-  { id: '111111', title: "new11", content: "content1"},
-  { id: '111112', title: "new21", content: "content2"},
-  { id: '11111z3', title: "new31", content: "content3"}
+  { id: '3', title: "new3", content: "content3"}
 ]
 
 const Service2News = () => {
@@ -201,8 +135,8 @@ const Service2News = () => {
     <>
       <h4>This is Service 2News</h4>
       <ul>
-        { news.map((news, idx) => {
-            return <li key={idx} ><Link to={'' + news.id} state={{...news}}>{news.title}</Link></li>
+        { news.map((news) => {
+            return <li key={news.id} ><Link to={news.id} state={{...news}}>{news.title}</Link></li>
           })
         }
       </ul>
