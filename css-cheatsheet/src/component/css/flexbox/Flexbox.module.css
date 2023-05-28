@@ -1,0 +1,30 @@
+.flexboxContainer {
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* Main Axis */
+  /* justify-content: space-around; */
+  /* justify-content: center; */
+  /* cross */
+  /* align-items: center; */
+}
+
+.flexboxItem {
+  width: 200px;
+  border: 2px solid #1A6B54;
+  background-color: #dfdfdf;
+}
+
+.flexboxItem1 {
+  min-height: 100px;
+  flex-shrink: 0;
+}
+
+.flexboxItem2 {
+  min-height: 200px;
+}
+
+.flexboxItem3 {
+  min-height: 400px;
+  flex-grow: 1;
+}
