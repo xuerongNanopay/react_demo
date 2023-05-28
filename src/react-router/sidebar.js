@@ -44,10 +44,9 @@ const SideBar = _ => {
                 <Route path="/" element={<Welcome />} />
                 <Route path="/service1" element={<Service1 a={1} />}/>
                 <Route path="/service2" element={<Service2/>}>
-                  <Route index element={<Service2News/>} />
+                  {/* <Route index element={<Service2News/>} /> */}
                   <Route path="news" element={<Service2News/>}> 
                     <Route path=":newsId" element={<Service2NewDetail/>}/>
-                    <Route path="*" element={<Service2News/>}/>
                   </Route>
                   <Route path="messages" element={<Service2message/>} />
                 </Route>
@@ -113,15 +112,25 @@ const Service2 = () => {
   const { state } = useLocation();
   console.log('state', state)
   console.log('useLocation', useLocation())
-
+  const navigate = useNavigate()
+  const onBack = _ => {
+    // navigate('./'+newsId, {replace: true});
+    navigate(-1)
+  }
+  const onForward = _ => {
+    // navigate('./'+newsId, {replace: true});
+    navigate(1)
+  }
     return (
       <div>
         <p className="fs2">Service22222</p>
-          <div className="d-flex flex-column">
-            <Link to="news" className="me-1 text-decoration-none">News</Link>
-            <Link to="messages" className="text-decoration-none">Messages</Link>
-          </div>
-          <Outlet/>
+        <button className="btn btn-secondary me-1" onClick={_ => onBack()}>back</button>
+        <button className="btn btn-secondary" onClick={_ => onForward()}>forward</button>
+        <div className="d-flex flex-column">
+          <Link to="news" className="me-1 text-decoration-none">News</Link>
+          <Link to="messages" className="text-decoration-none">Messages</Link>
+        </div>
+        <Outlet/>
       </div>
     )
 }
