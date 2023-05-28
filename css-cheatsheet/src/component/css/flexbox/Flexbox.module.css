@@ -18,13 +18,18 @@
 .flexboxItem1 {
   min-height: 100px;
   flex-shrink: 0;
+  align-self: end;
 }
 
 .flexboxItem2 {
   min-height: 200px;
+  flex-grow: 2;
+  flex-basis: 0;
+  align-self: center;
 }
 
 .flexboxItem3 {
   min-height: 400px;
   flex-grow: 1;
+  flex-basis: 0;
 }
