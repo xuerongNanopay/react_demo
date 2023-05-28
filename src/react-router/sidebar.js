@@ -16,14 +16,83 @@ const SideBar = () => {
       <div className="container-fluid bg-warning">
         <div className="row">
           {/* Side menu */}
-          <div className={`bg-body col-auto col-md-4 col-lg-3 min-vh-100`}>
-            <div className={`${css.sidebar}`}>
-              <div className={`bg-info`}>
+          <div className={`bg-body col-auto col-md-4 col-lg-3 ${css.left}`}>
+            <div>
+              <div className={`bg-info sticky-top`}>
                 <a className="d-flex justify-content-center text-decoration-none">
                   <span className="fs-4 d-none d-sm-inline">SideMenu</span>
                 </a>
               </div>
               <ul className="nav nav-pills flex-column mt-2">
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
+                <li className="nav-item">
+                  <NavLinkWrapper to="/service1" />
+                </li>
                 <li className="nav-item">
                   <NavLinkWrapper to="/service1" />
                 </li>
@@ -39,7 +108,7 @@ const SideBar = () => {
           </div>
           </div>
           {/* <div class="col-auto col-md-4 col-lg-3 min-vh-100"></div> */}
-          <div className="col">
+          <div className={`col ${css.right}`}>
               <Routes>
                 <Route path="/" element={<Welcome />} />
                 <Route path="/service1" element={<Service1 a={1} />}/>
@@ -116,6 +185,7 @@ const Service1 = ({a}) => {
         <h1>Header 1</h1>
         <p>I am in Service1_next</p>
       </Service1_next>
+      {/* <div style={{width: '700px', height: '700px', backgroundColor:'red'}}></div> */}
     </div>
   )
 }

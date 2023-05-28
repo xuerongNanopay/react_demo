@@ -23,3 +23,10 @@
   position: sticky;
   top: 0
 }
+
+.left,
+.right {
+  height: 100vh;
+  overflow-y: scroll;
+  -ms-overflow-style: none !important;
+}
