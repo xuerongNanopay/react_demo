@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaBeer } from "react-icons/fa";
 import { IconContext } from "react-icons";
-import { NavLink, Link, BrowserRouter, Route, Routes, useParams, Outlet, useOutletContext, useLocation, Redirect, useNavigate} from 'react-router-dom'
+import { NavLink, Link, BrowserRouter, Route, Routes, useParams, Outlet, useOutletContext, useLocation, Redirect, useNavigate, Navigate} from 'react-router-dom'
 import css from './sidebar.module.css'
 
 // Three ways to pass value to router:
@@ -44,7 +44,7 @@ const SideBar = _ => {
                 <Route path="/" element={<Welcome />} />
                 <Route path="/service1" element={<Service1 a={1} />}/>
                 <Route path="/service2" element={<Service2/>}>
-                  {/* <Route index element={<Service2News/>} /> */}
+                  <Route index element={<Navigate to="news"/>} />
                   <Route path="news" element={<Service2News/>}> 
                     <Route path=":newsId" element={<Service2NewDetail/>}/>
                   </Route>
