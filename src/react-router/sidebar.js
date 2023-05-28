@@ -116,7 +116,7 @@ const Service1 = ({a}) => {
         <h1>Header 1</h1>
         <p>I am in Service1_next</p>
       </Service1_next>
-      {/* <div style={{width: '700px', height: '700px', backgroundColor:'red'}}></div> */}
+      <div className={`${css.fixedContainer}`}></div>
     </div>
   )
 }
