@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaBeer } from "react-icons/fa";
 import { IconContext } from "react-icons";
-import { NavLink, Link, BrowserRouter, Route, Routes, useParams, Outlet, useOutletContext, useLocation, Redirect} from 'react-router-dom'
+import { NavLink, Link, BrowserRouter, Route, Routes, useParams, Outlet, useOutletContext, useLocation, Redirect, useNavigate} from 'react-router-dom'
 import css from './sidebar.module.css'
 
 // Three ways to pass value to router:
@@ -136,7 +136,7 @@ const Service2News = () => {
       <h4>This is Service 2News</h4>
       <ul>
         { news.map((news) => {
-            return <li key={news.id} ><Link to={news.id} state={{...news}}>{news.title}</Link></li>
+            return <li key={news.id} ><Link replace to={news.id} state={{...news}}>{news.title}</Link></li>
           })
         }
       </ul>
