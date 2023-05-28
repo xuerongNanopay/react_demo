@@ -1,7 +1,21 @@
 import React from 'react'
 import { FaBeer } from "react-icons/fa";
 import { IconContext } from "react-icons";
-import { NavLink, Link, BrowserRouter, Route, Routes, useParams, Outlet, useOutletContext, useLocation, Redirect, useNavigate, Navigate} from 'react-router-dom'
+import {
+  NavLink, 
+  Link, 
+  BrowserRouter, 
+  Route, 
+  Routes, 
+  useParams, 
+  Outlet, 
+  useOutletContext, 
+  useLocation, 
+  Redirect, 
+  useNavigate, 
+  Navigate,
+  HashRouter
+} from 'react-router-dom'
 import css from './sidebar.module.css'
 
 // Three ways to pass value to router:
@@ -50,7 +64,7 @@ const SideBar = _ => {
                   </Route>
                   <Route path="messages" element={<Service2message/>} />
                 </Route>
-                <Route path="*" element={<NotFound />} />
+                <Route path="*" element={<Navigate to="/" />} />
               </Routes>
           </div>
         </div>
@@ -113,6 +127,7 @@ const Service2 = () => {
   console.log('state', state)
   console.log('useLocation', useLocation())
   const navigate = useNavigate()
+  console.log('navigate: ', navigate)
   const onBack = _ => {
     // navigate('./'+newsId, {replace: true});
     navigate(-1)
