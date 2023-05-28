@@ -9,7 +9,7 @@ import css from './sidebar.module.css'
 //  2. Uri prams: like /user/1 . useParams to get date
 //  3. or searchParams . useSearchParams to get data
 //  4. useContext
-const SideBar = () => {
+const SideBar = _ => {
 
   return (
     <BrowserRouter>
@@ -47,6 +47,7 @@ const SideBar = () => {
                   <Route index element={<Service2News/>} />
                   <Route path="news" element={<Service2News/>}> 
                     <Route path=":newsId" element={<Service2NewDetail/>}/>
+                    <Route path="*" element={<Service2News/>}/>
                   </Route>
                   <Route path="messages" element={<Service2message/>} />
                 </Route>
@@ -131,12 +132,24 @@ const news = [
 ]
 
 const Service2News = () => {
+  const navigate = useNavigate()
+  const onReplace = (newsId) => {
+    navigate('./'+newsId, {replace: true});
+  }
+  const onPush = newsId => {
+    navigate('./'+newsId);
+  }
   return (
     <>
       <h4>This is Service 2News</h4>
       <ul>
         { news.map((news) => {
-            return <li key={news.id} ><Link replace to={news.id} state={{...news}}>{news.title}</Link></li>
+            return (
+              <li key={news.id} className="d-flex" style={{gap: "10px", marginBottom: "10px"}}>
+                <Link replace to={news.id} state={{...news}}>{news.title}</Link>
+                <button className="btn btn-secondary" onClick={_ => onPush(news.id)}>PUSH</button>
+                <button className="btn btn-secondary" onClick={_ => onReplace(news.id)}>Replace</button>
+              </li>)
           })
         }
       </ul>
@@ -147,7 +160,7 @@ const Service2News = () => {
 
 const Service2NewDetail = () => {
   const { newsId } = useParams();
-  const {id, title, content} = news.find(news => news.id === newsId)
+  const {id, title, content} = news.find(news => news.id === newsId) || {id: "noFound", title:"nofound", content:"nofound"}
   return (
     <>
       <p>This is detail of new: {newsId}</p>
