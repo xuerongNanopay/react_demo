@@ -6,13 +6,15 @@ import FlexBox from './component/css/flexbox/Flexbox'
 import Grid from './component/css/grid/Grid'
 import reportWebVitals from './reportWebVitals';
 import TwoColumnLayout from './component/layout/reponsive_two_column/TwoColumn'
+import CenterSingleContainer from './component/layout/center_single_container/CenterSingleContainer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <App />
   // <FlexBox />
   // <Grid />
-  <TwoColumnLayout />
+  // <TwoColumnLayout />
+  <CenterSingleContainer />
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,0 +1,20 @@
+.centerSingleContainer {
+  display: flex;
+  background-color: beige;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.innerContainer {
+  background-color: aqua;
+  flex-shrink: 0;
+  /* width: max(50%, 500px); */
+  width: 50%;
+  height: 400px;
+}
+@media (max-width: 767.98px) {
+  .innerContainer {
+    width: 90%
+  }
+}
