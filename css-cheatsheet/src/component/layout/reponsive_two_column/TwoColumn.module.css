@@ -1,0 +1,22 @@
+.twoColumnLayout {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr minmax(500px, 1fr);
+}
+
+.left {
+  background-color: aquamarine;
+}
+
+.right {
+  background-color:azure;
+}
+
+@media (max-width: 767.98px) {
+  .left {
+    grid-column: span 2;
+  }
+  .right {
+    grid-row: span 3;
+  }
+}
