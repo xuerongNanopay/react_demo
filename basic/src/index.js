@@ -21,6 +21,7 @@ import UseEffect from './react/useEffect'
 import UseState from './react/useState'
 import ReactRouter from './react/reactRouter'
 import SideBar from './react-router/sidebar'
+import { Redux } from './redux/Redux'
 
 //Bootstrap
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -29,7 +30,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <SideBar />
+    <Redux />
   </>
   // <>
   //   <UseEffect />
