@@ -1,6 +1,7 @@
 //import { Provider, useSelector, useDispatch } from 'react-redux'
 import store from './store'
 import { useState } from 'react'
+import { createIncrementAction, createDecrementAction } from './count_action'
 
 const ReduxAdvance = () => {
   const [ count, setCount ] = useState(store.getState());
@@ -15,19 +16,19 @@ const ReduxAdvance = () => {
   }
 
   const increment = _ => {
-    store.dispatch({type: 'increment', data: value})
+    store.dispatch(createIncrementAction(value))
   }
   const decrement = _ => {
-    store.dispatch({type: 'decrement', data: value})
+    store.dispatch(createDecrementAction(value))
   }
   const incrementIfOdd = _ => {
     if ( count % 2 !== 0 ) {
-      store.dispatch({type: 'increment', data: value})
+      store.dispatch(createIncrementAction(value))
     }
   }
   const incrementAsync = _ => {
     setTimeout(_ => {
-      store.dispatch({type: 'increment', data: value})
+      store.dispatch(createIncrementAction(value))
     }, 2000)
   }
 
