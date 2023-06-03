@@ -1,29 +1,33 @@
-import { Provider, useSelector, useDispatch } from 'react-redux'
-import { useState  } from 'react'
+//import { Provider, useSelector, useDispatch } from 'react-redux'
+import store from './store'
+import { useState } from 'react'
 
 export const Redux = () => {
-  const [ count, setCount ] = useState(0);
+  const [ count, setCount ] = useState(store.getState());
   const [ value, setValue ] = useState(1);
 
+  store.subscribe(_ => {
+    setCount(store.getState())
+  })
+
   const pickValue = (e) => {
-    e.preventDefault()
     setValue(Number.parseInt(e.target.value))  
   }
 
   const increment = _ => {
-    setCount(count+value);
+    store.dispatch({type: 'increment', data: value})
   }
   const decrement = _ => {
-    setCount(count-value);
+    store.dispatch({type: 'decrement', data: value})
   }
   const incrementIfOdd = _ => {
     if ( count % 2 !== 0 ) {
-      setCount(count+value);
+      store.dispatch({type: 'increment', data: value})
     }
   }
   const incrementAsync = _ => {
     setTimeout(_ => {
-      setCount(count => count+value);
+      store.dispatch({type: 'increment', data: value})
     }, 2000)
   }
 

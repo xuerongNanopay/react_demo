@@ -21,7 +21,7 @@ import UseEffect from './react/useEffect'
 import UseState from './react/useState'
 import ReactRouter from './react/reactRouter'
 import SideBar from './react-router/sidebar'
-import { Redux } from './redux/Redux'
+import { Redux } from './redux_demo/Redux'
 
 //Bootstrap
 import "bootstrap/dist/css/bootstrap.min.css"
