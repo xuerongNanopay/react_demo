@@ -23,6 +23,7 @@ import ReactRouter from './react/reactRouter'
 import SideBar from './react-router/sidebar'
 import { ReduxBasic } from './redux_basic/ReduxBasic'
 import ReduxAdvance from './redux_advance/ReduxAdvance'
+//import ReactRedux from './react-redux/ReactRedux'
 //Bootstrap
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min"
@@ -30,7 +31,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <ReduxAdvance />
+    <ReactRedux />
   </>
   // <>
   //   <UseEffect />
