@@ -2,7 +2,7 @@
 import store from './store'
 import { useState } from 'react'
 
-export const Redux = () => {
+const ReduxAdvance = () => {
   const [ count, setCount ] = useState(store.getState());
   const [ value, setValue ] = useState(1);
 
@@ -53,3 +53,4 @@ export const Redux = () => {
   )
 }
 
+export default ReduxAdvance
