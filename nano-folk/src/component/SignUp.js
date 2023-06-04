@@ -67,7 +67,7 @@ const SignIn = ({children}) => {
                     onChange={e => setEmail(e.target.value)} 
                     type="email"
                   />
-                  <Form.Text id="passwordHelpBlock" muted>Required</Form.Text>
+                  <FormText id="passwordHelpBlock" muted>Required</FormText>
                 </Form.Group>
                 <Form.Group className="mb-1" controlId="usename">
                   <Form.Label>Username</Form.Label>
@@ -77,7 +77,7 @@ const SignIn = ({children}) => {
                     onChange={e => setUsername(e.target.value)} 
                     type="text"
                   />
-                  <Form.Text id="passwordHelpBlock" muted>Required</Form.Text>
+                  <FormText id="passwordHelpBlock" muted>Required</FormText>
                 </Form.Group>
                 <Form.Group className="mb-1" controlId="password">
                   <Form.Label>Password</Form.Label>
@@ -90,9 +90,9 @@ const SignIn = ({children}) => {
                     />
                     <InputGroup.Text onClick={toggleShowPassword} style={{cursor: 'pointer'}}>{showPassword?<FaEye/>:<FaEyeSlash/>}</InputGroup.Text>
                   </InputGroup>
-                  <Form.Text id="passwordHelpBlock" muted>Password should be at least 10 characters</Form.Text>
+                  <FormText id="passwordHelpBlock" muted>Password should be at least 10 characters</FormText>
                 </Form.Group>
-                <div className="d-grid gap-auto mb-2 mt-2">
+                <div className="d-grid gap-auto mb-3 mt-2">
                   <Button type="submit" className="fw-bold" disabled={!canSubmit}>Get Start</Button>
                 </div>
               </Form>

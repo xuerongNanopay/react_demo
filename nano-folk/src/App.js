@@ -3,7 +3,7 @@
 
 import SignIn from './component/SignIn'
 import SignUp from './component/SignUp'
-import Main from './component/Main'
+import MainMenu from './component/MainMenu'
 
 import {
   Routes,
@@ -19,6 +19,7 @@ const App = _ => {
         {/* If login then navigate to main */}
         <Route path="/signIn" element={<SignIn />}/>
         <Route path="/SignUp" element={<SignUp />}/>
+        <Route path="/user" element={<MainMenu/>}/>
 
         {/* <Route path="/service2" element={<Service2/>}>
           <Route index element={<Navigate to="news"/>} />
