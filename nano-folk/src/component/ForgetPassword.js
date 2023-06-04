@@ -27,6 +27,13 @@ const ForgetPassword = _ => {
     navigate('/signIn', {replace: true})
   }
 
+  const forgetPassowrdSubmit = e => {
+    e.preventDefault()
+    e.stopPropagation()
+    alert('TODO: forgetPassowrdSubmit');
+    //TODO: redirect to signIn
+  }
+
   return (
     <>
       <div 
@@ -46,7 +53,7 @@ const ForgetPassword = _ => {
         <p className="text-center mt-3">Enter the email you used to create your account in order to reset your password.</p>
         {/* <p>account in order to reset your password.</p> */}
         <div className={css.formWidth} style={{margin: 'auto'}}>
-          <Form>
+          <Form onSubmit={forgetPassowrdSubmit}>
             <Form.Group className="mb-1" controlId="email">
               <Form.Label>Email</Form.Label>
               <Form.Control
