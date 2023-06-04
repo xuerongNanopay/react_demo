@@ -1,0 +1,15 @@
+.formWidth {
+  width: 40%
+}
+
+@media (max-width: 768px) {
+  .formWidth {
+    width: 85%
+  }
+}
+.verifyCode {
+  & > input {
+    width: 2rem;
+    height: 2rem;
+  }
+}
