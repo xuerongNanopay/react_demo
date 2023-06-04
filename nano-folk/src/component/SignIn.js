@@ -29,7 +29,7 @@ const SignIn = ({children}) => {
   }
   const navigateToForgetPasswordView = e => {
     e.preventDefault()
-    alert("TODO: navigateToForgetPasswordView")
+    navigate('/forgetPassword')
   }
   const navigateToSignUp = _ => {
     navigate('/signUp', {replace: true});

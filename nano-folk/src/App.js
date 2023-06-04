@@ -4,6 +4,7 @@
 import SignIn from './component/SignIn'
 import SignUp from './component/SignUp'
 import MainMenu from './component/MainMenu'
+import ForgetPassword from './component/ForgetPassword'
 
 import {
   Routes,
@@ -19,6 +20,7 @@ const App = _ => {
         {/* If login then navigate to main */}
         <Route path="/signIn" element={<SignIn />}/>
         <Route path="/SignUp" element={<SignUp />}/>
+        <Route path="/forgetPassword" element={<ForgetPassword />} />
         <Route path="/user" element={<MainMenu/>}/>
 
         {/* <Route path="/service2" element={<Service2/>}>
