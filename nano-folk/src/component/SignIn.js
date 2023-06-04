@@ -19,7 +19,7 @@ const SignIn = ({children}) => {
   const onFormSubmit = (e) => {
     e.preventDefault()
     e.stopPropagation()
-    console.log(e)
+    alert("TODO: onFormSubmit")
   }
   const toggleShowPassword = e => {
     e.stopPropagation()
@@ -45,7 +45,7 @@ const SignIn = ({children}) => {
         </div>
         <div className={`col-md-7 col-lg-6 col-xl-5 col-xxl-4 ${css.right}`}>
           <div className="container-fluid h-100 d-flex justify-content-center align-items-md-center mt-5 mt-md-0">
-            <div className={css.signinFormWidth}>
+            <div className={css.formWidth}>
               <h3 style={{textAlign: "center"}}>Welcome Back</h3>
               <Form onSubmit={onFormSubmit}>
                 <Form.Group className="mb-2" controlId="usernameOrEmail">
@@ -54,7 +54,7 @@ const SignIn = ({children}) => {
                     className='border-2'
                     value={usernameOrEmail} 
                     onChange={e => setUsernameOrEmail(e.target.value)} 
-                    type="email"
+                    type="text"
                   />
                 </Form.Group>
                 <Form.Group className="mb-2" controlId="password">
@@ -69,7 +69,9 @@ const SignIn = ({children}) => {
                     <InputGroup.Text onClick={toggleShowPassword} style={{cursor: 'pointer'}}>{showPassword?<FaEye/>:<FaEyeSlash/>}</InputGroup.Text>
                   </InputGroup>
                 </Form.Group>
-                <a onClick = {navigateToForgetPasswordView}
+                <a
+                  href="/#"
+                  onClick = {navigateToForgetPasswordView}
                   className="d-block mb-3 link-underline-opacity-100-hover" 
                   style={{textAlign: 'end', cursor: 'pointer'}}
                 >
@@ -84,6 +86,7 @@ const SignIn = ({children}) => {
                 <Button 
                   variant="outline-primary" 
                   className={`ms-1 ${css.buttonHoverColor}`}
+                  onClick={navigateToSignUp}
                 >
                   Create an Account
                 </Button>
