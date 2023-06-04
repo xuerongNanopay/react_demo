@@ -6,9 +6,9 @@ import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup'
 import { FaEye, FaEyeSlash } from "react-icons/fa"
 
-// import {
-//   userNavigate
-// } from 'react-router-dom'
+import {
+  useNavigate
+} from 'react-router-dom'
 
 import css from './SignIn.module.scss'
 
@@ -16,6 +16,8 @@ const SignIn = ({children}) => {
   const [ usernameOrEmail, setUsernameOrEmail ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ showPassword, setShowPassword ] = useState(false)
+  const navigate = useNavigate();
+
   const onFormSubmit = (e) => {
     e.preventDefault()
     e.stopPropagation()
@@ -30,7 +32,7 @@ const SignIn = ({children}) => {
     alert("TODO: navigateToForgetPasswordView")
   }
   const navigateToSignUp = _ => {
-    alert("TODO: navigateToSignUp")
+    navigate('/signUp', {replace: true});
   }
 
   return (

@@ -1,18 +1,36 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import nbp_background_url from '../image/nbp-backgroud.svg'
 import nbp_logo from '../image/nbp_foree_remittance_logo.svg'
 import Form from 'react-bootstrap/Form';
+import FormText from 'react-bootstrap/FormText'
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup'
 import { FaEye, FaEyeSlash } from "react-icons/fa"
 
 import css from './SignUp.module.scss'
 
+import {
+  useNavigate
+} from 'react-router-dom'
+
 const SignIn = ({children}) => {
-  const [ usernameOrEmail, setUsernameOrEmail ] = useState('')
+  const [ email, setEmail ] = useState('');
+  const [ username, setUsername ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ showPassword, setShowPassword ] = useState(false)
-  const onFormSubmit = (e) => {
+  const [ canSubmit, setCanSubmit ] = useState(false)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    //TODO: more precise validation
+    if ( email !== "" && username !== "" && password !== "" ) {
+      setCanSubmit(true)
+    } else {
+      setCanSubmit(false)
+    }
+  }, [email, username, password])
+
+  const onBoardSubmit = (e) => {
     e.preventDefault()
     e.stopPropagation()
     alert("TODO: onFormSubmit")
@@ -21,12 +39,9 @@ const SignIn = ({children}) => {
     e.stopPropagation()
     setShowPassword(!showPassword)
   }
-  const navigateToForgetPasswordView = e => {
-    e.preventDefault()
-    alert("TODO: navigateToForgetPasswordView")
-  }
+
   const navigateToSignIn = _ => {
-    alert("TODO: navigateToSignIn")
+    navigate('/signIn', {replace: true})
   }
 
   return (
@@ -43,17 +58,28 @@ const SignIn = ({children}) => {
           <div className="container-fluid h-100 d-flex justify-content-center align-items-md-center mt-5 mt-md-0">
             <div className={css.formWidth}>
               <h3 style={{textAlign: "center"}}>Welcome Back</h3>
-              <Form onSubmit={onFormSubmit}>
-                <Form.Group className="mb-2" controlId="usernameOrEmail">
-                  <Form.Label>Email or Username</Form.Label>
+              <Form onSubmit={onBoardSubmit}>
+                <Form.Group className="mb-1" controlId="email">
+                  <Form.Label>Email</Form.Label>
                   <Form.Control
                     className='border-2'
-                    value={usernameOrEmail} 
-                    onChange={e => setUsernameOrEmail(e.target.value)} 
+                    value={email} 
+                    onChange={e => setEmail(e.target.value)} 
+                    type="email"
+                  />
+                  <Form.Text id="passwordHelpBlock" muted>Required</Form.Text>
+                </Form.Group>
+                <Form.Group className="mb-1" controlId="usename">
+                  <Form.Label>Username</Form.Label>
+                  <Form.Control
+                    className='border-2'
+                    value={username} 
+                    onChange={e => setUsername(e.target.value)} 
                     type="text"
                   />
+                  <Form.Text id="passwordHelpBlock" muted>Required</Form.Text>
                 </Form.Group>
-                <Form.Group className="mb-2" controlId="password">
+                <Form.Group className="mb-1" controlId="password">
                   <Form.Label>Password</Form.Label>
                   <InputGroup>
                     <Form.Control
@@ -64,27 +90,20 @@ const SignIn = ({children}) => {
                     />
                     <InputGroup.Text onClick={toggleShowPassword} style={{cursor: 'pointer'}}>{showPassword?<FaEye/>:<FaEyeSlash/>}</InputGroup.Text>
                   </InputGroup>
+                  <Form.Text id="passwordHelpBlock" muted>Password should be at least 10 characters</Form.Text>
                 </Form.Group>
-                <a
-                  href="/#"
-                  onClick = {navigateToForgetPasswordView}
-                  className="d-block mb-3 link-underline-opacity-100-hover" 
-                  style={{textAlign: 'end', cursor: 'pointer'}}
-                >
-                  Forgot Password?
-                </a>
-                <div className="d-grid gap-auto mb-3">
-                  <Button type="submit" className="fw-bold">Sign In</Button>
+                <div className="d-grid gap-auto mb-2 mt-2">
+                  <Button type="submit" className="fw-bold" disabled={!canSubmit}>Get Start</Button>
                 </div>
               </Form>
               <p style={{textAlign: "center"}}>
-                Not a User Yet? 
+                Already have an Account?
                 <Button 
                   variant="outline-primary" 
                   className={`ms-1 ${css.buttonHoverColor}`}
                   onClick={navigateToSignIn}
                 >
-                  Create an Account
+                  Sign In
                 </Button>
               </p>
             </div>
