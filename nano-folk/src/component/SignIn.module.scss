@@ -1,0 +1,31 @@
+.left {
+  background-color: aquamarine;
+}
+
+.right {
+  height: 100vh;
+}
+.left {
+  height: 100vh;
+}
+.logoHeight {
+  height: 12%
+}
+.signinFormWidth {
+  width: 70%
+}
+
+@media (max-width: 768px) {
+  .left {
+    height: 20vh;
+  }
+  .right {
+    height: 80vh;
+  }
+  .logoHeight {
+    height: 45%
+  }
+  .signinFormWidth {
+    width: 85%
+  }
+}
