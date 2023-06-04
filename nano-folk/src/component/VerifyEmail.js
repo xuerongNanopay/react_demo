@@ -10,6 +10,24 @@ import {
 } from 'react-router-dom'
 
 const VerifyEmail = _ => {
+  const [code, setCode] = useState(Array(6).fill(""));
+  useEffect(() => {
+
+  }, )
+
+  const codeChange = (idx) => {
+    return (e) => {
+      e.preventDefault();
+
+      let keyCode = e.keyCode
+      if ( keyCode === 8 ) {
+        console.log('Delete')
+      }
+      if ( keyCode < 48 || keyCode > 57 ) return
+      console.log('change Array')
+    }
+  }
+
   return (
     <>
       <div 
@@ -36,13 +54,13 @@ const VerifyEmail = _ => {
                 gap: '1rem',
                 // padding: '2rem'
               }}
-            >
-              <input type='text'/>
-              <input type='text'/>
-              <input type='text'/>
-              <input type='text'/>
-              <input type='text'/>
-              <input type='text'/>
+            > 
+              {
+                code.map((val, idx) => {
+                  let i = idx;
+                  return <input key={idx} value={val} onChange={_ => {}} onKeyUp={codeChange(i)} type='text'/>
+                })
+              }
             </div>
             <Button 
               style={{margin: 'auto', display: 'block', width: '70%'}}
