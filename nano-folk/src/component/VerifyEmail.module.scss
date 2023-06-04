@@ -9,7 +9,12 @@
 }
 .verifyCode {
   & > input {
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
   }
+}
+.buttonHoverColor{
+  background-color: hsl(162 41% 90%) !important;
+  color: #1A6B54 !important;
 }

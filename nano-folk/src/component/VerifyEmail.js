@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 import css from './VerifyEmail.module.scss'
 
 import {
-  useNavigate
+  Link
 } from 'react-router-dom'
 
 const VerifyEmail = _ => {
@@ -27,12 +27,14 @@ const VerifyEmail = _ => {
         <div className={`${css.formWidth}`} style={{margin: 'auto'}}>
           <p className="text-center">We have sent a verification code to your email. Please enter the code below to confirm that this account belongs to you.</p>
           <div>
-            <p>Verification Code</p>
+            <p style={{textAlign:'center'}}>Verification Code</p>
             <div
               className={`${css.verifyCode}`}
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(6, 1fr)'
+                display: 'flex',
+                justifyContent: 'center',
+                gap: '1rem',
+                // padding: '2rem'
               }}
             >
               <input type='text'/>
@@ -42,7 +44,23 @@ const VerifyEmail = _ => {
               <input type='text'/>
               <input type='text'/>
             </div>
+            <Button 
+              style={{margin: 'auto', display: 'block', width: '70%'}}
+              className={`fw-bold mt-4`}
+            // onClick={navigateToSignIn}
+            >
+              Submit
+            </Button>
+            <Button 
+              variant="outline-primary"
+              className={`${css.buttonHoverColor} fw-bold mt-3`}
+              style={{margin: 'auto', display: 'block', width: '70%'}}
+              // onClick={navigateToSignIn}
+            >
+              Resend Code
+            </Button>
           </div>
+          <Link className="mt-4" style={{margin: 'auto', display: 'block', textAlign:'center'}} to={'/signIn'} replace={true}>Back to Sign In</Link>
         </div>
       </div>
     </>
