@@ -9,23 +9,45 @@ import {
   Link
 } from 'react-router-dom'
 
-const VerifyEmail = _ => {
-  const [code, setCode] = useState(Array(6).fill(""));
-  useEffect(() => {
+const VERIFY_DIGIT_SIZE = 6;
 
-  }, )
+const VerifyEmail = _ => {
+  const [code, setCode] = useState(Array(VERIFY_DIGIT_SIZE).fill(""))
+  const refs = Array(VERIFY_DIGIT_SIZE).fill(null)
+  const [canSubmit, setCanSubmit] = useState(false)
 
   const codeChange = (idx) => {
     return (e) => {
       e.preventDefault();
-
       let keyCode = e.keyCode
       if ( keyCode === 8 ) {
-        console.log('Delete')
+        if ( code[idx] !== "" ) code[idx] = "";
+        else if ( idx - 1 >= 0 && code[idx-1] !== "" ) {
+          code[idx-1] = "";
+          refs[idx-1].select() 
+        }
+      } else {
+        if ( keyCode < 48 || keyCode > 57 ) return
+        if ( idx + 1 < VERIFY_DIGIT_SIZE) refs[idx+1].select() 
+        code[idx] = e.key
       }
-      if ( keyCode < 48 || keyCode > 57 ) return
-      console.log('change Array')
+      setCode([...code])
+
     }
+  }
+
+  useEffect(() => {
+    const sendCode = code.join('')
+    if ( sendCode.length === VERIFY_DIGIT_SIZE ) setCanSubmit(true)
+    else setCanSubmit(false)
+  }, [...code])
+
+  const submitVerifyCode = _ => {
+    alert("TODO: Submit Code: " + code.join(""))
+  }
+
+  const resendCode = _ => {
+    alert("TODO: Recend Code")
   }
 
   return (
@@ -57,19 +79,21 @@ const VerifyEmail = _ => {
             > 
               {
                 code.map((val, idx) => {
-                  let i = idx;
-                  return <input key={idx} value={val} onChange={_ => {}} onKeyUp={codeChange(i)} type='text'/>
+                  return <input ref={(e) => refs[idx] = e} key={idx} value={val} onChange={_ => {}} onKeyUp={codeChange(idx)} type='text'/>
                 })
               }
             </div>
-            <Button 
+            <Button
+              onClick={submitVerifyCode}
               style={{margin: 'auto', display: 'block', width: '70%'}}
               className={`fw-bold mt-4`}
+              disabled={!canSubmit}
             // onClick={navigateToSignIn}
             >
               Submit
             </Button>
             <Button 
+              onClick={resendCode}
               variant="outline-primary"
               className={`${css.buttonHoverColor} fw-bold mt-3`}
               style={{margin: 'auto', display: 'block', width: '70%'}}
