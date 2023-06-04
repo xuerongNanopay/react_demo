@@ -15,6 +15,11 @@
   width: 70%
 }
 
+.buttonHoverColor:hover {
+  background-color: hsl(162 41% 90%) !important;
+  color: #1A6B54 !important;
+}
+
 @media (max-width: 768px) {
   .left {
     height: 20vh;

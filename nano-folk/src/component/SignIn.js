@@ -3,7 +3,8 @@ import nbp_background_url from '../image/nbp-backgroud.svg'
 import nbp_logo from '../image/nbp_foree_remittance_logo.svg'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { FaBeer } from "react-icons/fa";
+import InputGroup from 'react-bootstrap/InputGroup'
+import { FaEye, FaEyeSlash } from "react-icons/fa"
 
 // import {
 //   userNavigate
@@ -12,13 +13,26 @@ import { FaBeer } from "react-icons/fa";
 import css from './SignIn.module.scss'
 
 const SignIn = ({children}) => {
-  const [ usernameOrEmail, setUsernameOrEmail ] = useState('');
-  const [ password, setPassword ] = useState('');
+  const [ usernameOrEmail, setUsernameOrEmail ] = useState('')
+  const [ password, setPassword ] = useState('')
+  const [ showPassword, setShowPassword ] = useState(false)
   const onFormSubmit = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+    e.preventDefault()
+    e.stopPropagation()
     console.log(e)
   }
+  const toggleShowPassword = e => {
+    e.stopPropagation()
+    setShowPassword(!showPassword)
+  }
+  const navigateToForgetPasswordView = e => {
+    e.preventDefault()
+    alert("TODO: navigateToForgetPasswordView")
+  }
+  const navigateToSignUp = _ => {
+    alert("TODO: navigateToSignUp")
+  }
+
   return (
     <div className='container-fluid'>
       <div className="row">
@@ -45,16 +59,35 @@ const SignIn = ({children}) => {
                 </Form.Group>
                 <Form.Group className="mb-2" controlId="password">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control
-                    className='border-2'
-                    value={password} 
-                    onChange={e => setPassword(e.target.value)} 
-                    type="password" 
-                  />
+                  <InputGroup>
+                    <Form.Control
+                      className='border-2'
+                      value={password} 
+                      onChange={e => setPassword(e.target.value)} 
+                      type={ showPassword ? "text" : "password" }
+                    />
+                    <InputGroup.Text onClick={toggleShowPassword} style={{cursor: 'pointer'}}>{showPassword?<FaEye/>:<FaEyeSlash/>}</InputGroup.Text>
+                  </InputGroup>
                 </Form.Group>
-                <a className="d-block mb-3 link-underline-opacity-100-hover" style={{textAlign: 'end', cursor: 'pointer'}}>Forgot Password?</a>
-                <Button type="submit">Sign In</Button>
+                <a onClick = {navigateToForgetPasswordView}
+                  className="d-block mb-3 link-underline-opacity-100-hover" 
+                  style={{textAlign: 'end', cursor: 'pointer'}}
+                >
+                  Forgot Password?
+                </a>
+                <div className="d-grid gap-auto mb-3">
+                  <Button type="submit" className="fw-bold">Sign In</Button>
+                </div>
               </Form>
+              <p style={{textAlign: "center"}}>
+                Not a User Yet? 
+                <Button 
+                  variant="outline-primary" 
+                  className={`ms-1 ${css.buttonHoverColor}`}
+                >
+                  Create an Account
+                </Button>
+              </p>
             </div>
           </div>
         </div>
