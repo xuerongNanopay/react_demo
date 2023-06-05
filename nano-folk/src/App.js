@@ -1,11 +1,11 @@
 // import logo from './logo.svg';
 // import './App.css';
 
-import SignIn from './component/SignIn'
-import SignUp from './component/SignUp'
+import SignIn from './component/unauth/SignIn'
+import SignUp from './component/unauth/SignUp'
 import MainMenu from './component/auth/UserMenu'
 import ForgetPassword from './component/unauth/ForgetPassword'
-import VerifyEmail from './component/VerifyEmail'
+import VerifyEmail from './component/unauth/VerifyEmail'
 
 import {
   Routes,

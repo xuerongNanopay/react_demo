@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import nbp_background_url from '../image/nbp-backgroud.svg'
-import nbp_logo from '../image/nbp_foree_remittance_logo.svg'
+import nbp_background_url from 'image/nbp-backgroud.svg'
+import nbp_logo from 'image/nbp_foree_remittance_logo.svg'
 import Form from 'react-bootstrap/Form';
 import FormText from 'react-bootstrap/FormText'
 import Button from 'react-bootstrap/Button';

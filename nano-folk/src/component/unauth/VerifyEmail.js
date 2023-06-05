@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react'
-import nbp_logo from '../image/nbp_foree_remittance_logo.svg'
-import Form from 'react-bootstrap/Form';
-import FormText from 'react-bootstrap/FormText'
+import { useState, useEffect, useMemo } from 'react'
+import nbp_logo from 'image/nbp_foree_remittance_logo.svg'
 import Button from 'react-bootstrap/Button'
 import css from './VerifyEmail.module.scss'
 
@@ -15,6 +13,7 @@ const VerifyEmail = _ => {
   const [code, setCode] = useState(Array(VERIFY_DIGIT_SIZE).fill(""))
   const refs = Array(VERIFY_DIGIT_SIZE).fill(null)
   const [canSubmit, setCanSubmit] = useState(false)
+  const codeMemo = useMemo(() => [...code], [code]);
 
   const codeChange = (idx) => {
     return (e) => {
@@ -37,10 +36,10 @@ const VerifyEmail = _ => {
   }
 
   useEffect(() => {
-    const sendCode = code.join('')
+    const sendCode = codeMemo.join('')
     if ( sendCode.length === VERIFY_DIGIT_SIZE ) setCanSubmit(true)
     else setCanSubmit(false)
-  }, [...code])
+  }, [codeMemo])
 
   const submitVerifyCode = _ => {
     alert("TODO: Submit Code: " + code.join(""))

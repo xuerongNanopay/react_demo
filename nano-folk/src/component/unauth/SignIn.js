@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import nbp_background_url from '../image/nbp-backgroud.svg'
-import nbp_logo from '../image/nbp_foree_remittance_logo.svg'
+import nbp_background_url from 'image/nbp-backgroud.svg'
+import nbp_logo from 'image/nbp_foree_remittance_logo.svg'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup'
