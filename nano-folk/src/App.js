@@ -6,6 +6,7 @@ import SignUp from './component/unauth/SignUp'
 import MainMenu from './component/auth/UserMenu'
 import ForgetPassword from './component/unauth/ForgetPassword'
 import VerifyEmail from './component/unauth/VerifyEmail'
+import UserMenu from 'component/auth/UserMenu'
 
 import {
   Routes,
@@ -24,6 +25,7 @@ const App = _ => {
         <Route path="/forgetPassword" element={<ForgetPassword />} />
         <Route path="/user" element={<MainMenu/>}/>
         <Route path="/verifyEmail" element={<VerifyEmail/>}/>
+        <Route path="/userMenu" element={<UserMenu/>}/>
 
         {/* <Route path="/service2" element={<Service2/>}>
           <Route index element={<Navigate to="news"/>} />
