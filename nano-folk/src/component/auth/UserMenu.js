@@ -1,4 +1,4 @@
-const MainMenu = () => {
+const UserMenu = () => {
   return (
     <div>
       <div>Main</div>
@@ -6,4 +6,4 @@ const MainMenu = () => {
   )
 }
 
-export default MainMenu
+export default UserMenu

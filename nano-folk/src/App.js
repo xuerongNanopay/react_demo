@@ -3,8 +3,8 @@
 
 import SignIn from './component/SignIn'
 import SignUp from './component/SignUp'
-import MainMenu from './component/MainMenu'
-import ForgetPassword from './component/ForgetPassword'
+import MainMenu from './component/auth/UserMenu'
+import ForgetPassword from './component/unauth/ForgetPassword'
 import VerifyEmail from './component/VerifyEmail'
 
 import {
