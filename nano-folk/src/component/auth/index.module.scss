@@ -13,5 +13,10 @@
 
   section {
     flex: 1 0 667px;
+    display: flex;
+
+    nav {
+      flex: 0 0 250px;
+    }
   }
 }
