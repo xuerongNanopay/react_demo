@@ -10,28 +10,32 @@ const UserMenu = () => {
   }
 
   return (
-    <div className="container-fluid">
-      <header 
-        className="row d-md-none"
-        style={{height: '67px', borderBottom: '2px solid rgba(0, 0, 0, 0.06)'}}
-      >
-        <div className="w-100 py-3 d-flex justify-content-between">
-          <GiHamburgerMenu 
-            size={35} 
-            className={css.showMenu}
-            onClick={toggleMenu}
-          />
-          <img src={nbpHeadIcon} alt="logo"/>
-          {/* Placeholder for icon to spread evenly */}
-          <GiHamburgerMenu size={35} style={{visibility: 'hidden'}}/>
-        </div>
-      </header>
-      <div className="row">
-        <div className={``}>
-        </div>
-        <div className={``}>
+    <div className="container-fluid vh-100">
+      <div className={`${css.flexContainer}`}>
+        <header 
+          className="row d-md-none"
+          style={{borderBottom: '2px solid rgba(0, 0, 0, 0.06)'}}
+        >
+          <div className="w-100 py-3 d-flex justify-content-between">
+            <GiHamburgerMenu 
+              size={35} 
+              className={css.showMenu}
+              onClick={toggleMenu}
+            />
+            <img src={nbpHeadIcon} alt="logo"/>
+            {/* Placeholder for icon to spread evenly */}
+            <GiHamburgerMenu size={35} style={{visibility: 'hidden'}}/>
+          </div>
+        </header>
 
-        </div>
+        <section className="row">
+          <div className={`col bg-primary`}>
+            111
+          </div>
+          <div className={`col`}>
+            111
+          </div>
+        </section>
       </div>
     </div>
   )
