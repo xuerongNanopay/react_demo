@@ -1,9 +1,9 @@
 import nbpHeadIcon from 'image/nbp-head-icon.svg'
 import { GiHamburgerMenu } from "react-icons/gi";
 
-import css from './UserMenu.module.scss'
+import css from './index.module.scss'
 
-const UserMenu = () => {
+const UserApp = () => {
   
   const toggleMenu = _ => {
     alert("TODO: show menu")
@@ -29,16 +29,17 @@ const UserMenu = () => {
         </header>
 
         <section className="row">
-          <div className={`col bg-primary`}>
-            111
-          </div>
-          <div className={`col`}>
-            111
-          </div>
+          <nav className={`col bg-primary`}>
+            {/* TODO: navigation menus: basing on the permission / NavLink */}
+          </nav>
+          <article className={`col`}>
+            {/* Routes */}
+            
+          </article>
         </section>
       </div>
     </div>
   )
 }
 
-export default UserMenu
+export default UserApp

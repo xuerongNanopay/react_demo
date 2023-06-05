@@ -6,16 +6,12 @@
   display: flex;
   flex-flow: column;
   height: 100%;
-}
-
-.flexContainer {
 
   header {
-    flex: 0 1 67px;
+    flex: 0 0 67px;
   }
 
   section {
-    flex: 1 1 667px;
+    flex: 1 0 667px;
   }
-
 }
