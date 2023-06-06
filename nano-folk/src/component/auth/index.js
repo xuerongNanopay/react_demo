@@ -29,12 +29,13 @@ const UserApp = () => {
         </header>
 
         <section className="row">
-          <nav className={`col bg-primary`}>
+          <nav className={`col col-md-3 col-xl-2 bg-primary`}>
             {/* TODO: navigation menus: basing on the permission / NavLink */}
+            <h3> 111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111 </h3>
           </nav>
-          <article className={`col`}>
+          <article className={`col-12 col-md-9 col-xl-8`}>
             {/* Routes */}
-            
+            <h1> 111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111 </h1>
           </article>
         </section>
       </div>
