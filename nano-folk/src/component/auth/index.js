@@ -1,12 +1,13 @@
 import nbpHeadIcon from 'image/nbp-head-icon.svg'
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useState } from 'react'
 
 import css from './index.module.scss'
 
 const UserApp = () => {
-  
+  const [ showNav, setShowNav ] = useState(false);
   const toggleMenu = _ => {
-    alert("TODO: show menu")
+    setShowNav(!showNav)
   }
 
   return (
@@ -28,7 +29,7 @@ const UserApp = () => {
         </header>
 
         <section className="row">
-          <nav className={`col-md-3 col-xl-2 bg-primary`}>
+          <nav className={`col-md-3 col-xl-2 bg-primary ${showNav ? css.showNav : css.hideNav}`}>
             {/* TODO: navigation menus: basing on the permission / NavLink */}
             <header>
               This is header
@@ -83,7 +84,7 @@ const UserApp = () => {
             <h1>88888888 ***************** *****************</h1>
             <h1> 111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111 </h1>
             <h1> 111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111 </h1>
-{/* 
+
             <h1> 111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111 </h1>
             <h1> 111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111 </h1>
             <h1> 111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111 </h1>
@@ -94,7 +95,7 @@ const UserApp = () => {
             <h1> 111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111 </h1>
             <h1> 111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111 </h1>
             <h1> 111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111 </h1>
-            <h1> 111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111 </h1> */}
+            <h1> 111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111 </h1>
 
           </article>
         </section>
