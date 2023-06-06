@@ -1,11 +1,19 @@
 .showMenu:hover {
   cursor: pointer;
 }
+@mixin navOffset($offset) {
+  position: -webkit-sticky;
+  position: sticky;
+  top:  $offset;
+  z-index: 1000;
+  height: calc(100vh - $offset);
 
+}
 .flexContainer {
   display: flex;
   flex-flow: column;
-  height: 100%;
+  // Add this line will cause header scroll bu
+  // height: 100%;
   min-width: 375px;
 
   & > header {
@@ -20,11 +28,7 @@
     flex: 1 0 667px;
 
     nav {
-      position: -webkit-sticky;
-      position: sticky;
-      top:  0;
-      z-index: 1000;
-      height: calc(100vh);
+      @include navOffset(0px);
 
       display: flex;
       flex-flow: column;
@@ -49,9 +53,6 @@
       }
     }
 
-    article {
-      overflow-y: scroll;
-    }
   }
 }
 
