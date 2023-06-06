@@ -6,21 +6,78 @@
   display: flex;
   flex-flow: column;
   height: 100%;
+  min-width: 375px;
 
-  header {
+  & > header {
     flex: 0 0 67px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
   }
 
   section {
     flex: 1 0 667px;
+
+    nav {
+      position: -webkit-sticky;
+      position: sticky;
+      top:  0;
+      z-index: 1000;
+      height: calc(100vh);
+
+      display: flex;
+      flex-flow: column;
+
+      header {
+        flex: 0 0 67px
+      }
+      ul {
+        flex: 1 1;
+        overflow-y: auto;
+
+        li {
+          transition: 0.4s;
+        }
+
+        li:hover {
+          padding-left: 10px;
+        }
+      }
+      footer {
+        flex: 0 0 67px
+      }
+    }
+
+    article {
+      overflow-y: scroll;
+    }
   }
 }
 
 @media (max-width: 768px) {
   .flexContainer {
+    & > header {
+      // cellphone will scroll the header up
+      position: fixed;
+      min-width: 100%;
+    }
     section {
+      position: relative;
+      top: 67px;
+
+      header {
+        display: none;
+      }
       nav {
-        display: none!important;
+        // display: none;
+        width: 239px;
+        z-index: 100;
+        position: fixed;
+        left: -239px;
+        top: 67px;
+        height: calc(100% - 67px);
+        // height: 100%
       }
     }
   }
