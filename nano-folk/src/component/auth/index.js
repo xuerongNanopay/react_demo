@@ -3,7 +3,7 @@ import nbp_logo from 'image/nbp_foree_remittance_logo.svg'
 import { GiHamburgerMenu } from "react-icons/gi"
 import { TbMathGreater } from "react-icons/tb"
 import { BsBell, BsSend, BsBank, BsGrid1X2, BsPeople, BsCardText } from "react-icons/bs";
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { 
   NavLink,
   Link
@@ -12,6 +12,22 @@ import css from './index.module.scss'
 
 const UserApp = () => {
   const [ showNav, setShowNav ] = useState(true);
+  const navRef = useRef();
+  const toggleRef = useRef();
+
+  useEffect(() => {
+    const hander = e => {
+      if ( toggleRef.current.contains(e.target) ) return;
+      if ( ! navRef.current.contains(e.target) ) {
+        setShowNav(false)
+      }
+    }
+    window.addEventListener("mouseup", hander)
+    return _ => {
+      window.removeEventListener("mouseup", hander)
+    }
+  }, [])
+
   const toggleMenu = _ => {
     setShowNav(!showNav)
   }
@@ -23,11 +39,12 @@ const UserApp = () => {
           className="row d-md-none"
         >
           <div className="w-100 py-3 d-flex justify-content-between">
+            <div ref={toggleRef}>
             <GiHamburgerMenu 
               size={35} 
               className={css.showMenu}
               onClick={toggleMenu}
-            />
+            /></div>
             <img src={nbpHeadIcon} alt="logo"/>
             {/* Placeholder for icon to spread evenly */}
             <GiHamburgerMenu size={35} style={{visibility: 'hidden'}}/>
@@ -38,8 +55,9 @@ const UserApp = () => {
           <nav 
             className={`gx-0 col-md-3 col-xl-2 ${showNav ? css.showNav : css.hideNav}`}
             style = {{
-              borderRight: '1px solid #DADDE2;'
+              borderRight: '1px solid #DADDE2'
             }}
+            ref={navRef}
           >
             {/* TODO: navigation menus: basing on the permission / NavLink */}
             <header
@@ -84,7 +102,7 @@ const UserApp = () => {
                 <BsBell className="me-1"/> <span>Notifications</span>
               </Link>
               <a href='/' onClick={ e => e.preventDefault() } className="d-flex align-items-center justify-content-between text-decoration-none">
-                <span class="text-uppercase fw-bold text-truncate">XXXX WWWWW fdsafads fdasfasdf </span><TbMathGreater/>
+                <span className="text-uppercase fw-bold text-truncate">XXXX WWWWW fdsafads fdasfasdf </span><TbMathGreater/>
               </a>
             </footer>
           </nav>
