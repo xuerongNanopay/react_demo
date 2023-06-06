@@ -1,10 +1,12 @@
 import nbpHeadIcon from 'image/nbp-head-icon.svg'
 import nbp_logo from 'image/nbp_foree_remittance_logo.svg'
-import { GiHamburgerMenu } from "react-icons/gi";
-import { BsSend, BsBank, BsGrid1X2, BsPeople, BsCardText } from "react-icons/bs";
+import { GiHamburgerMenu } from "react-icons/gi"
+import { TbMathGreater } from "react-icons/tb"
+import { BsBell, BsSend, BsBank, BsGrid1X2, BsPeople, BsCardText } from "react-icons/bs";
 import { useState } from 'react'
 import { 
-  NavLink 
+  NavLink,
+  Link
 } from "react-router-dom";
 import css from './index.module.scss'
 
@@ -77,7 +79,14 @@ const UserApp = () => {
                 </NavLink>             
               </li>
             </ul>
-            <footer className="p-2">This is booter</footer>
+            <footer className="p-2">
+              <Link to="/signIn" className="d-flex py-2 align-items-center text-decoration-none"> 
+                <BsBell className="me-1"/> <span>Notifications</span>
+              </Link>
+              <a href='/' onClick={ e => e.preventDefault() } className="d-flex align-items-center justify-content-between text-decoration-none">
+                <span class="text-uppercase fw-bold text-truncate">XXXX WWWWW fdsafads fdasfasdf </span><TbMathGreater/>
+              </a>
+            </footer>
           </nav>
           <article className={`col-12 col-md-9 col-xl-8`}>
             {/* Routes */}
