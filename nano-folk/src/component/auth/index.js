@@ -1,11 +1,14 @@
 import nbpHeadIcon from 'image/nbp-head-icon.svg'
+import nbp_logo from 'image/nbp_foree_remittance_logo.svg'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from 'react'
-
+import { 
+  NavLink 
+} from "react-router-dom";
 import css from './index.module.scss'
 
 const UserApp = () => {
-  const [ showNav, setShowNav ] = useState(false);
+  const [ showNav, setShowNav ] = useState(true);
   const toggleMenu = _ => {
     setShowNav(!showNav)
   }
@@ -29,10 +32,17 @@ const UserApp = () => {
         </header>
 
         <section className="row">
-          <nav className={`col-md-3 col-xl-2 bg-primary ${showNav ? css.showNav : css.hideNav}`}>
+          <nav 
+            className={`col-md-3 col-xl-2 ${showNav ? css.showNav : css.hideNav}`}
+            style = {{
+              borderRight: '1px solid #DADDE2;'
+            }}
+          >
             {/* TODO: navigation menus: basing on the permission / NavLink */}
-            <header>
-              This is header
+            <header
+              className="d-flex justify-content-center py-4"
+            >
+              <img src={nbp_logo} alt="logo"/>
             </header>
             <ul>
               <li>##</li>
@@ -42,29 +52,7 @@ const UserApp = () => {
               <li>33</li>
               <li>33</li>
               <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
+
               <li>33</li>
               <li>33</li>
               <li>33</li>
