@@ -11,17 +11,19 @@
 }
 .flexContainer {
   min-width: 400px;
+  min-height: 667px;
   & > header {
     position: sticky;
     height: '64px';
     top: 0;
     z-index: 1000;
     background-color: white;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.06);
   }
 
   section {
     nav {
-      @include navOffset(64px);
+      @include navOffset(0px);
 
       display: flex;
       flex-flow: column;

@@ -13,8 +13,7 @@ const UserApp = () => {
     <div className="container-fluid vh-100">
       <div className={`${css.flexContainer}`}>
         <header 
-          className="row"
-          style={{borderBottom: '2px solid rgba(0, 0, 0, 0.06)'}}
+          className="row d-md-none"
         >
           <div className="w-100 py-3 d-flex justify-content-between">
             <GiHamburgerMenu 
