@@ -11,6 +11,7 @@ const FlexBoxVertical = _ => {
         style={{
           // display: 'flex',
           // flexFlow: 'column',
+          // Do not provide height
           // height: '100%'
         }}
       >
@@ -46,33 +47,85 @@ const FlexBoxVertical = _ => {
               position: 'sticky',
               top: '4rem',
               height: 'calc(100vh - 4rem)',
-              overflowY: 'auto'
+              // overflowY: 'auto',
+
+              //Inside container
+              display: 'flex',
+              flexFlow: 'column',
+              
             }}
           >
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
-            <h1>2222</h1>
+            <header
+              style={{
+                flex: '0 0 60px'
+              }}
+            >
+              <h1>This is header</h1>
+            </header>
+            <ul
+              style={{
+                flex: '1 1',
+                overflowY: 'scroll'
+              }}
+            >
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+              <li>2222</li>
+            </ul>
+            <footer
+              style={{
+                flex: '0 0 60px'
+              }}
+            >
+              <h1>This is header</h1>
+            </footer>
           </nav>
           <main
             style={{
