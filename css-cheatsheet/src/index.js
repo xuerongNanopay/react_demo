@@ -7,6 +7,7 @@ import Grid from './component/css/grid/Grid'
 import reportWebVitals from './reportWebVitals';
 import TwoColumnLayout from './component/layout/reponsive_two_column/TwoColumn'
 import CenterSingleContainer from './component/layout/center_single_container/CenterSingleContainer';
+import FlexBoxVertical from './component/css/flexbox/FlexboxVertical';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +15,7 @@ root.render(
   // <FlexBox />
   // <Grid />
   // <TwoColumnLayout />
-  <CenterSingleContainer />
+  <FlexBoxVertical />
 );
 
 // If you want to start measuring performance in your app, pass a function
