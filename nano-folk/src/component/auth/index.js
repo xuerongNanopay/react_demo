@@ -33,14 +33,14 @@ const UserApp = () => {
 
         <section className="row">
           <nav 
-            className={`col-md-3 col-xl-2 ${showNav ? css.showNav : css.hideNav}`}
+            className={`gx-0 col-md-3 col-xl-2 ${showNav ? css.showNav : css.hideNav}`}
             style = {{
               borderRight: '1px solid #DADDE2;'
             }}
           >
             {/* TODO: navigation menus: basing on the permission / NavLink */}
             <header
-              className="d-flex justify-content-center py-4"
+              className=" d-flex justify-content-center py-4"
             >
               <img src={nbp_logo} alt="logo"/>
             </header>
