@@ -10,25 +10,18 @@
 
 }
 .flexContainer {
-  display: flex;
-  flex-flow: column;
-  // Add this line will cause header scroll bu
-  // height: 100%;
-  min-width: 375px;
-
+  min-width: 400px;
   & > header {
-    flex: 0 0 67px;
     position: sticky;
+    height: '64px';
     top: 0;
     z-index: 1000;
     background-color: white;
   }
 
   section {
-    flex: 1 0 667px;
-
     nav {
-      @include navOffset(0px);
+      @include navOffset(64px);
 
       display: flex;
       flex-flow: column;
@@ -53,6 +46,10 @@
       }
     }
 
+    article {
+      flex: '1 0 850px',
+    }
+
   }
 }
 
@@ -60,22 +57,22 @@
   .flexContainer {
     & > header {
       // cellphone will scroll the header up
-      position: fixed;
-      min-width: 100%;
+      // position: fixed;
+      // min-width: 100%;
     }
     section {
-      position: relative;
-      top: 67px;
+      // position: relative;
+      // top: 67px;
 
       header {
-        display: none;
+        // display: none;
       }
       nav {
         // display: none;
         width: 239px;
         z-index: 100;
         position: fixed;
-        left: -239px;
+        left: -39px;
         top: 67px;
         height: calc(100% - 67px);
         // height: 100%

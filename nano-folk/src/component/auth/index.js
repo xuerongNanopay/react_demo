@@ -13,7 +13,7 @@ const UserApp = () => {
     <div className="container-fluid vh-100">
       <div className={`${css.flexContainer}`}>
         <header 
-          className="row d-md-none"
+          className="row"
           style={{borderBottom: '2px solid rgba(0, 0, 0, 0.06)'}}
         >
           <div className="w-100 py-3 d-flex justify-content-between">
@@ -35,6 +35,7 @@ const UserApp = () => {
               This is header
             </header>
             <ul>
+              <li>##</li>
               <li>33</li>
               <li>33</li>
               <li>33</li>
