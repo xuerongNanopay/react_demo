@@ -12,6 +12,8 @@
 .flexContainer {
   min-width: 340px;
   min-height: 667px;
+  // KEY: set this heigh will break the view scroll.
+  //height: 100%;
   & > header {
     position: sticky;
     height: '64px';
