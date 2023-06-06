@@ -49,7 +49,8 @@
     }
 
     article {
-      flex: '1 0 850px',
+      flex: '1 0 850px';
+      background-color: 'blue';
     }
 
   }
@@ -57,18 +58,7 @@
 
 @media (max-width: 768px) {
   .flexContainer {
-    & > header {
-      // cellphone will scroll the header up
-      // position: fixed;
-      // min-width: 100%;
-    }
     section {
-      // position: relative;
-      // top: 67px;
-
-      header {
-        // display: none;
-      }
       nav {
         // display: none;
         width: 239px;
@@ -78,6 +68,9 @@
         top: 67px;
         height: calc(100% - 67px);
         // height: 100%
+      }
+      article {
+        // height: calc(100vh - 67px);
       }
     }
   }
