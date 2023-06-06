@@ -1,6 +1,7 @@
 import nbpHeadIcon from 'image/nbp-head-icon.svg'
 import nbp_logo from 'image/nbp_foree_remittance_logo.svg'
 import { GiHamburgerMenu } from "react-icons/gi";
+import { BsSend, BsBank, BsGrid1X2, BsPeople, BsCardText } from "react-icons/bs";
 import { useState } from 'react'
 import { 
   NavLink 
@@ -44,28 +45,39 @@ const UserApp = () => {
             >
               <img src={nbp_logo} alt="logo"/>
             </header>
-            <ul>
-              <li>##</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
-              <li>33</li>
+            <ul className="nav nav-pills flex-column mt-2">
+              <li>
+                <NavLink className="nav-link d-flex align-items-center" to="/signIn">
+                  <BsGrid1X2 />
+                  <span className="ms-1">Dashboard</span>
+                </NavLink>             
+              </li>
+              <li>
+                <NavLink className="nav-link d-flex align-items-center" to="/signIn">
+                  <BsSend />
+                  <span className="ms-1">Send Money</span>
+                </NavLink>             
+              </li>
+              <li>
+                <NavLink className="nav-link d-flex align-items-center" to="/signIn">
+                  <BsPeople />
+                  <span className="ms-1">Contacts</span>
+                </NavLink>             
+              </li>
+              <li>
+                <NavLink className="nav-link d-flex align-items-center" to="/signIn">
+                  <BsBank />
+                  <span className="ms-1">My Accounts</span>
+                </NavLink>             
+              </li>
+              <li>
+                <NavLink className="nav-link d-flex align-items-center" to="/signIn">
+                  <BsCardText />
+                  <span className="ms-1">Transactions</span>
+                </NavLink>             
+              </li>
             </ul>
-            <footer>This is booter</footer>
+            <footer className="p-2">This is booter</footer>
           </nav>
           <article className={`col-12 col-md-9 col-xl-8`}>
             {/* Routes */}
