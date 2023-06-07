@@ -13,8 +13,8 @@ import css from './index.module.scss'
 const UserApp = () => {
   const [ showNav, setShowNav ] = useState(true);
   const [ toggleNav, setToggleNav ] = useState(false);
-  const navRef = useRef();
-  const toggleRef = useRef();
+  const navRef = useRef()
+  const toggleRef = useRef()
 
   useEffect(() => {
     const hander = e => {
