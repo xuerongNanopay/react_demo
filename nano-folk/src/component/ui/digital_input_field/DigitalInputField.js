@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import css from './DigitalInputField.module.css'
+import css from './DigitalInputField.module.scss'
 
 const DigitalInputField = ({submit=undefined, digits=6, supportAlpha=false}) => {
   const [codeArr, setCodeArr] = useState(Array(digits).fill(""))
@@ -9,7 +9,6 @@ const DigitalInputField = ({submit=undefined, digits=6, supportAlpha=false}) => 
     return (e) => {
       e.preventDefault();
       e.stopPropagation();
-      console.log("aaa")
       let keyCode = e.keyCode
       //Handle delete key event.
       if ( keyCode === 8 ) {

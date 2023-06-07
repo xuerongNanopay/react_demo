@@ -48,7 +48,6 @@ const VerifyEmail = _ => {
             <DigitalInputField 
               submit={val => setCode(val)}
               digits={VERIFY_DIGIT_SIZE}
-              supportAlpha={true}
             />
             <Button
               onClick={submitVerifyCode}
