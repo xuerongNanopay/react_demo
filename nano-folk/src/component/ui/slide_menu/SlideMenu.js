@@ -42,14 +42,19 @@ const MENU_DEMO = [
     to: '/signIn',
     subMenus: undefined
   },
-  // {
-  //   id: 'userProfile',
-  //   name: 'User Name',
-  //   to: undefined,
-  //   subMenus: [
-
-  //   ]
-  // }
+  {
+    id: 'userProfile',
+    name: 'User Name',
+    to: undefined,
+    subMenus: [
+      {
+        id: 'changePassword',
+        name: 'Change Password',
+        to: '/changePassword',
+        subMenus: undefined
+      }
+    ]
+  }
 ]
 
 const SlideMenu = ({menus=MENU_DEMO}) => {
@@ -62,18 +67,14 @@ const SlideMenu = ({menus=MENU_DEMO}) => {
           backgroundColor: '#b5f5ec'
         }}
       >
-        {
-          menus.map(menu => {
-            
-          })
-        }
+        <MenuController/>
       </div>
     </div>
   )
 }
 
 
-const Menu = ({parent, menus}) => {
+const Menu = ({parent=undefined, menus}) => {
   return (
     <>
       <p>This is menu</p>
@@ -89,12 +90,17 @@ const MenuItem = ({menu}) => {
   )
 }
 
-const MenuController = () => {
+// Menu control is responsible for decision on which menu should be should up.
+const MenuController = ({menus}) => {
   return (
     <>
       <p>This is MenuController</p>
     </>
   )
 }
+
+//TODO: 
+// 1. need to process menus, add parent - children relation ship
+// 2. forward and back. try change elements now.
 
 export default SlideMenu
