@@ -85,17 +85,7 @@ const SlideNav = ({menus=MENU_DEMO}) => {
           overflowY: 'scroll'
         }}
       >
-        {/* { test ? <Slide style={{backgroundColor: 'blue'}} /> : <Slide style={{backgroundColor: 'red'}} />} */}
-        <Slide 
-          // className={test? css.show : ""}
-        >
-        </Slide>
-        {/* <Slide 
-          style={{backgroundColor: 'red'}} 
-          className={test? css.show : ""}
-        >
-          red
-        </Slide> */}
+        <Menu />
       </div>
     </div>
       <button 
@@ -110,20 +100,6 @@ const SlideNav = ({menus=MENU_DEMO}) => {
         Testaa
       </button>
     </>
-  )
-}
-
-
-const Slide = ({style, className, children}) => {
-  return (
-    <div
-      // style={{
-      //   ...style
-      // }}
-      className={`${className} ${css.slide}`}
-    >
-      <Menu></Menu>
-    </div>
   )
 }
 
@@ -220,15 +196,6 @@ const SubMenuNavItem = ({menu}) => {
         {menu.icon}
         <span style={{marginLeft: '0.5rem'}}>{menu.name}</span>
       </a>
-    </>
-  )
-}
-
-// Menu control is responsible for decision on which menu should be should up.
-const SlideController = ({menus}) => {
-  return (
-    <>
-      <p>This is MenuController</p>
     </>
   )
 }
