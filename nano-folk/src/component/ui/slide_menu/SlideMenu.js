@@ -166,7 +166,13 @@ const SubMenuItem = () => {
     <div
       className={`${css.subMenuItemMain}`}
     >
-      <div className={`${css.subMenuItemHeader} ${css.selectableItem} ${isOpen ? css.subMenuItemHeaderOpen : ''}`} onClick={toggleSubmenu}><h5>AAA</h5> {isOpen ? CloseIcon : DownArrowIcon}</div>
+      <div 
+        className={`${css.subMenuItemHeader} ${css.selectableItem} ${isOpen ? css.subMenuItemHeaderOpen : ''}`} 
+        onClick={toggleSubmenu}
+      >
+        <h5>AAA</h5> 
+        {isOpen ? IconArrowUp : IconArrowDown}
+      </div>
       <div className={`${css.subMenuItemWrapper} ${isOpen ? css.subMenuItemWrapperInnerOpen : ''}`}>
         <ul 
           className={`${css.subMenuItemWrapperInner}`}
@@ -207,6 +213,6 @@ const SlideController = ({menus}) => {
 // 1. need to process menus, add parent - children relation ship
 // 2. forward and back. try change elements now.
 
-const DownArrowIcon = (<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg>);
-const CloseIcon =(<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="22" width="22" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>);
+const IconArrowDown = (<i className={`${css.iconArrow} ${css.iconArrowDown}`}/>);
+const IconArrowUp = (<i className={`${css.iconArrow} ${css.iconArrowUp}`}/>);
 export default SlideNav
