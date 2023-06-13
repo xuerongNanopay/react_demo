@@ -17,12 +17,6 @@
   text-decoration: none !important;
 }
 
-.slide {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-
 .menu {
   padding: 0.5rem;
 }
@@ -58,7 +52,11 @@
 
 .subMenuItemHeaderOpen {
   background-color: #d9d9d9;
-  font-weight: 600 !important;
+  /* color: #FFF; */
+}
+
+.subMenuItemHeaderOpen > h5 {
+  color: #262626;
 }
 
 .subMenuItemWrapper {
