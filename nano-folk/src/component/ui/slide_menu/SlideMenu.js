@@ -165,7 +165,7 @@ const SubMenuItem = () => {
       className={`${css.subMenuItemMain}`}
     >
       <div 
-        className={`${css.subMenuItemHeader} ${isOpen ? css.subMenuItemHeaderOpen : ''}`} 
+        className={`${css.subMenuItemHeader} ${css.selectableItem}  ${isOpen ? css.subMenuItemHeaderOpen : ''}`} 
         onClick={toggleSubmenu}
       >
         <h5>AAA</h5> 
