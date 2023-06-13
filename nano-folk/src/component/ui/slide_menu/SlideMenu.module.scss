@@ -1,16 +1,65 @@
-.slideMenu{
-  
+.slideMenu * {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.slideMenu li {
+  list-style: none;
 }
 
-.show {
-  left: 0px !important;
-}
+// .show {
+//   left: 0px !important;
+//   visibility: visible !important;
+// }
 
 .slide {
   position: absolute;
   height: 100%;
   width: 100%;
-  left: 100%;
-  -webkit-transition: left 1s ease;
-  transition: left 1s ease;
+  // left: 0;
+  // visibility: hidden;
+  // -webkit-transition: all 1s ease;
+  // transition: all 1s ease;
+}
+
+.menu {
+  padding: 1rem;
+}
+
+.menuItem {
+  transition: padding-left 500ms;
+  margin-bottom: 1rem;
+  background-color: #ff85c0;
+}
+
+.menuItem:hover {
+  cursor: pointer;
+  padding-left: 20px;
+
+}
+
+.subMenuItem {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+}
+
+.subMenuItemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subMenuItemWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
+}
+
+.subMenuItemWrapperInner {
+  overflow: hidden;
+}
+
+.subMenuItemWrapperInnerOpen {
+  grid-template-rows: 1fr;
 }
