@@ -82,14 +82,13 @@ const SlideNav = ({menus=MENU_DEMO}) => {
         style={{
           position: 'relative',
           width: '300px',
-          height: '100%',
-          backgroundColor: '#1677ff',
-          overflow: 'hidden'
+          height: '400px',
+          backgroundColor: '#b37feb',
+          overflowY: 'scroll'
         }}
       >
         {/* { test ? <Slide style={{backgroundColor: 'blue'}} /> : <Slide style={{backgroundColor: 'red'}} />} */}
         <Slide 
-          style={{backgroundColor: '#b37feb'}} 
           // className={test? css.show : ""}
         >
         </Slide>
@@ -120,9 +119,9 @@ const SlideNav = ({menus=MENU_DEMO}) => {
 const Slide = ({style, className, children}) => {
   return (
     <div
-      style={{
-        ...style
-      }}
+      // style={{
+      //   ...style
+      // }}
       className={`${className} ${css.slide}`}
     >
       <Menu></Menu>
@@ -150,7 +149,6 @@ const MenuItem = ({children, item}) => {
       style={{
         margin: '0.5rem 0 0.5rem'
       }}
-      className={`${css.menuItem}`}
     >
       <SubMenuItem />
     </div>
@@ -166,10 +164,9 @@ const SubMenuItem = () => {
   }
   return (
     <div
-      style={{listStyle: 'none'}}
       className={`${css.subMenuItemMain}`}
     >
-      <div className={`${css.subMenuItemHeader}`} onClick={toggleSubmenu}><h5>AAA</h5> {isOpen ? CloseIcon : DownArrowIcon}</div>
+      <div className={`${css.subMenuItemHeader} ${css.selectableItem} ${isOpen ? css.subMenuItemHeaderOpen : ''}`} onClick={toggleSubmenu}><h5>AAA</h5> {isOpen ? CloseIcon : DownArrowIcon}</div>
       <div className={`${css.subMenuItemWrapper} ${isOpen ? css.subMenuItemWrapperInnerOpen : ''}`}>
         <ul 
           className={`${css.subMenuItemWrapperInner}`}
@@ -178,10 +175,10 @@ const SubMenuItem = () => {
           // }}
         >
           {/* <div className={`${css.subMenuItemWrapperInner}`}>Expandable content</div> */}
-          <li className={`${css.selectableItem}`}><p>222</p></li>
-          <li className={`${css.selectableItem}`}><p>222</p></li>
-          <li className={`${css.selectableItem}`}><p>222</p></li>
-          <li className={`${css.selectableItem}`}><p>222</p></li>
+          <li className={`${css.selectableItem}`} style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}><p>222</p></li>
+          <li className={`${css.selectableItem}`} style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}><p>222</p></li>
+          <li className={`${css.selectableItem}`} style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}><p>222</p></li>
+          <li className={`${css.selectableItem}`} style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}><p>222</p></li>
         </ul>
       </div>
     </div>
