@@ -6,9 +6,7 @@ import {
   Link
 } from "react-router-dom";
 
-import { BsBell } from "react-icons/bs";
-import { FaChevronDown } from "react-icons/fa"
-import { MdClose } from 'react-icons/md'
+import { BsBell, BsSend, BsBank, BsGrid1X2, BsPeople, BsCardText } from "react-icons/bs";
 
 import { useState } from 'react'
 
@@ -29,8 +27,9 @@ const MENU_DEMO = [
     subMenus: [
       {
         id: 'contacts',
-        name: 'Contacts',
+        name: 'AAAAAAA',
         to: '/signIn',
+        icon: <BsBank/>
       }
     ]
   },
@@ -166,7 +165,7 @@ const SubMenuItem = () => {
       className={`${css.subMenuItemMain}`}
     >
       <div 
-        className={`${css.subMenuItemHeader} ${css.selectableItem} ${isOpen ? css.subMenuItemHeaderOpen : ''}`} 
+        className={`${css.subMenuItemHeader} ${isOpen ? css.subMenuItemHeaderOpen : ''}`} 
         onClick={toggleSubmenu}
       >
         <h5>AAA</h5> 
@@ -180,21 +179,47 @@ const SubMenuItem = () => {
           // }}
         >
           {/* <div className={`${css.subMenuItemWrapperInner}`}>Expandable content</div> */}
-          <li className={`${css.selectableItem}`} style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}><p>222</p></li>
-          <li className={`${css.selectableItem}`} style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}><p>222</p></li>
-          <li className={`${css.selectableItem}`} style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}><p>222</p></li>
-          <li className={`${css.selectableItem}`} style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}><p>222</p></li>
+          <li className={`${css.selectableItem}`} style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}><SubMenuNavItem menu={MENU_DEMO[0].subMenus[0]}/></li>
+          <li className={`${css.selectableItem}`} style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}><SubMenuNavItem menu={MENU_DEMO[0].subMenus[0]}/></li>
+          <li className={`${css.selectableItem}`} style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}><SubMenuNavItem menu={MENU_DEMO[0].subMenus[0]}/></li>
+          <li className={`${css.selectableItem}`} style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}><SubMenuNavItem menu={MENU_DEMO[0].subMenus[0]}/></li>
+
         </ul>
       </div>
     </div>
   )
 }
 
-const slideItem = ({menu}) => {
+const NavItem = ({menu}) => {
   console.log(menu)
   return (
     <>
-      <NavLink></NavLink>
+      {/* <NavLink></NavLink> */}
+      {/* <a></a> */}
+    </>
+  )
+}
+
+const SubMenuNavItem = ({menu}) => {
+  console.log(menu)
+  const onNav = e => {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+  return (
+    <>
+      <a
+        href="/#"
+        style={{
+          display: 'flex',
+          alignItems: 'center'
+        }}
+        className={`${css.animePaddingLeft}`}
+        onClick={onNav}
+      >
+        {menu.icon}
+        <span style={{marginLeft: '0.5rem'}}>{menu.name}</span>
+      </a>
     </>
   )
 }

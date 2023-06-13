@@ -7,6 +7,10 @@
   list-style: none;
 }
 
+.slideMenu a {
+  text-decoration: none !important;
+}
+
 // .show {
 //   left: 0px !important;
 //   visibility: visible !important;
@@ -33,9 +37,12 @@
 
 .selectableItem:hover {
   cursor: pointer;
-  // padding-left: 20px;
   background-color: #d3adf7;
+}
 
+.animePaddingLeft:hover {
+  padding-left: 0.5rem;
+  transition: padding 250ms ease-out;
 }
 
 .subMenuItemMain {
