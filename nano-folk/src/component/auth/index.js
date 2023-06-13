@@ -34,10 +34,12 @@ const UserApp = () => {
   }
 
   return (
-    <div className="container-fluid vh-100">
+    <div 
+      className={`container-fluid ${css.menuContainer}`}
+    >
       <div className={`${css.flexContainer}`}>
         <header 
-          className="row d-md-none"
+          className="row"
         >
           <div className="w-100 py-3 d-flex justify-content-between">
             <div ref={toggleRef}>
@@ -61,7 +63,7 @@ const UserApp = () => {
             ref={navRef}
           >
             {
-              toggleNav ? <UserNav/> : <UserProfileNav/>
+              true ? <UserNav/> : <UserProfileNav/>
             }
           </nav>
           <article className={`col-12 col-md-9 col-xl-8`}>

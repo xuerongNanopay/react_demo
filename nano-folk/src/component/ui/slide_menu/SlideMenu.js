@@ -31,7 +31,6 @@ const MENU_DEMO = [
         id: 'contacts',
         name: 'Contacts',
         to: '/signIn',
-        subMenus: undefined
       }
     ]
   },
@@ -82,7 +81,7 @@ const SlideNav = ({menus=MENU_DEMO}) => {
         style={{
           position: 'relative',
           width: '300px',
-          height: '400px',
+          height: '100%',
           backgroundColor: '#b37feb',
           overflowY: 'scroll'
         }}
