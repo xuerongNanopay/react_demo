@@ -26,19 +26,20 @@
   padding: 1rem;
 }
 
-.menuItem {
-  transition: padding-left 500ms;
-  margin-bottom: 1rem;
-  background-color: #ff85c0;
-}
-
-.menuItem:hover {
+.selectableItem {
   cursor: pointer;
-  padding-left: 20px;
+  padding-left: 1.2rem;
+  border-radius: 4px;
+}
+
+.selectableItem:hover {
+  cursor: pointer;
+  // padding-left: 20px;
+  background-color: #d3adf7;
 
 }
 
-.subMenuItem {
+.subMenuItemMain {
   display: grid;
   grid-template-rows: 0fr;
   overflow: hidden;

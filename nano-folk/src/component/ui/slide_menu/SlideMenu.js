@@ -83,7 +83,7 @@ const SlideNav = ({menus=MENU_DEMO}) => {
           position: 'relative',
           width: '300px',
           height: '100%',
-          backgroundColor: '#b5f5ec',
+          backgroundColor: '#1677ff',
           overflow: 'hidden'
         }}
       >
@@ -146,9 +146,14 @@ const MenuItem = ({children, item}) => {
   let navItem = (<li><h5>AAAA</h5></li>)
   
   return (
-    <>
+    <div
+      style={{
+        margin: '0.5rem 0 0.5rem'
+      }}
+      className={`${css.menuItem}`}
+    >
       <SubMenuItem />
-    </>
+    </div>
   )
 }
 
@@ -162,21 +167,21 @@ const SubMenuItem = () => {
   return (
     <div
       style={{listStyle: 'none'}}
-      className={`${css.subMenuItem}`}
+      className={`${css.subMenuItemMain}`}
     >
       <div className={`${css.subMenuItemHeader}`} onClick={toggleSubmenu}><h5>AAA</h5> {isOpen ? CloseIcon : DownArrowIcon}</div>
       <div className={`${css.subMenuItemWrapper} ${isOpen ? css.subMenuItemWrapperInnerOpen : ''}`}>
         <ul 
           className={`${css.subMenuItemWrapperInner}`}
-          style={{
-            paddingLeft: '1rem'
-          }}
+          // style={{
+          //   paddingLeft: '1rem'
+          // }}
         >
           {/* <div className={`${css.subMenuItemWrapperInner}`}>Expandable content</div> */}
-          <li><p>222</p></li>
-          <li><p>222</p></li>
-          <li><p>222</p></li>
-          <li><p>222</p></li>
+          <li className={`${css.selectableItem}`}><p>222</p></li>
+          <li className={`${css.selectableItem}`}><p>222</p></li>
+          <li className={`${css.selectableItem}`}><p>222</p></li>
+          <li className={`${css.selectableItem}`}><p>222</p></li>
         </ul>
       </div>
     </div>
