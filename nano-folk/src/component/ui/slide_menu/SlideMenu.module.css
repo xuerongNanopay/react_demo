@@ -1,13 +1,19 @@
-.slideMenu * {
+.sideNav {
+  --sideNav-backgroud-color: #fafafa;
+  --sideNav-font-color: #595959;
+  background-color: var(--sideNav-backgroud-color);
+}
+.sideNav * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  color: var(--sideNav-font-color);
 }
-.slideMenu li {
+.sideNav li {
   list-style: none;
 }
 
-.slideMenu a {
+.sideNav a {
   text-decoration: none !important;
 }
 
@@ -28,10 +34,11 @@
 
 .selectableItem:hover {
   cursor: pointer;
-  background-color: #d3adf7;
+  background-color: #d9d9d9;
 }
 
 .animePaddingLeft:hover {
+  background-color: #d9d9d9;
   padding-left: 0.5rem;
   transition: padding 250ms ease-out;
 }
@@ -50,7 +57,8 @@
 }
 
 .subMenuItemHeaderOpen {
-  background-color: #d3adf7;
+  background-color: #d9d9d9;
+  font-weight: 600 !important;
 }
 
 .subMenuItemWrapper {
@@ -68,7 +76,7 @@
 }
 
 .iconArrow {
-  border: solid black;
+  border: solid #595959;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;

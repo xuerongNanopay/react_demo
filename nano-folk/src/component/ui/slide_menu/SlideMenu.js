@@ -66,7 +66,7 @@ const MENU_DEMO = [
   }
 ]
 
-const SlideNav = ({menus=MENU_DEMO}) => {
+const SideNav = ({menus=MENU_DEMO}) => {
   const [ test, setTest ] = useState(false);
   return (
     <>
@@ -77,11 +77,10 @@ const SlideNav = ({menus=MENU_DEMO}) => {
       }}
     >
       <div
-        className={`${css.slideMenu}`}
+        className={`${css.sideNav}`}
         style={{
-          position: 'relative',
           height: '100%',
-          backgroundColor: '#b37feb',
+          width: '100%',
           overflowY: 'scroll'
         }}
       >
@@ -107,41 +106,49 @@ const Menu = () => {
   return (
     <nav className={`${css.menu}`}>
       <ul>
-        <MenuItem item={MENU_DEMO[0]} >1</MenuItem>
-        <MenuItem>2</MenuItem>
-        <MenuItem>3</MenuItem>
+        <MenuItemController item={MENU_DEMO[0]} >1</MenuItemController>
+        <MenuItemController>2</MenuItemController>
+        <MenuItemController>3</MenuItemController>
       </ul>
     </nav>
   )
 }
 
-const MenuItem = ({children, item}) => {
-  let navItem = (<li><h5>AAAA</h5></li>)
-  
+const MenuItemController = ({children, item}) => {  
   return (
     <div
       style={{
         margin: '0.5rem 0 0.5rem'
       }}
     >
-      <SubMenuItem />
+      <SubMenu />
     </div>
   )
 }
 
-const SubMenuItem = () => {
+const NavItem = ({menu}) => {
+  console.log(menu)
+  return (
+    <>
+      {/* <NavLink></NavLink> */}
+      {/* <a></a> */}
+    </>
+  )
+}
+
+const SubMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleSubmenu = e => {
     console.log(e)
     e.stopPropagation();
-    setIsOpen(!isOpen);
+    setIsOpen(pre => !pre);
   }
   return (
     <div
       className={`${css.subMenuItemMain}`}
     >
       <div 
-        className={`${css.subMenuItemHeader} ${css.selectableItem}  ${isOpen ? css.subMenuItemHeaderOpen : ''}`} 
+        className={`${css.subMenuItemHeader} ${css.selectableItem}  ${isOpen ? css.subMenuItemHeaderOpen : 'aaa'}`} 
         onClick={toggleSubmenu}
       >
         <h5>AAA</h5> 
@@ -163,16 +170,6 @@ const SubMenuItem = () => {
         </ul>
       </div>
     </div>
-  )
-}
-
-const NavItem = ({menu}) => {
-  console.log(menu)
-  return (
-    <>
-      {/* <NavLink></NavLink> */}
-      {/* <a></a> */}
-    </>
   )
 }
 
@@ -206,4 +203,4 @@ const SubMenuNavItem = ({menu}) => {
 
 const IconArrowDown = (<i className={`${css.iconArrow} ${css.iconArrowDown}`}/>);
 const IconArrowUp = (<i className={`${css.iconArrow} ${css.iconArrowUp}`}/>);
-export default SlideNav
+export default SideNav
