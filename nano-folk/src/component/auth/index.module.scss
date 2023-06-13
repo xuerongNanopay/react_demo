@@ -9,6 +9,13 @@
   height: calc(100vh - $offset);
 
 }
+
+.menuContainer {
+  min-height: 100vh;
+  /* mobile viewport bug fix */
+  min-height: -webkit-fill-available;
+}
+
 .flexContainer {
   min-width: 340px;
   min-height: 667px;
