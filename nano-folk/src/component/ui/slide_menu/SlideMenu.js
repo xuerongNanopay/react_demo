@@ -37,6 +37,7 @@ const MENU_DEMO = [
     id: 'sendMoney',
     name: 'Send Money',
     to: '/signIn',
+    icon: <BsBank/>,
     subMenus: undefined
   },
   {
@@ -51,19 +52,6 @@ const MENU_DEMO = [
     to: '/signIn',
     subMenus: undefined
   },
-  {
-    id: 'userProfile',
-    name: 'User Name',
-    to: undefined,
-    next: [
-      {
-        id: 'changePassword',
-        name: 'Change Password',
-        to: '/changePassword',
-        subMenus: undefined
-      }
-    ]
-  }
 ]
 
 const SideNav = ({menus=MENU_DEMO}) => {
@@ -106,40 +94,51 @@ const Menu = () => {
   return (
     <nav className={`${css.menu}`}>
       <ul>
-        <MenuItemController item={MENU_DEMO[0]} >1</MenuItemController>
-        <MenuItemController>2</MenuItemController>
-        <MenuItemController>3</MenuItemController>
+        <MenuItemController item={MENU_DEMO[0]} />
+        <MenuItemController item={MENU_DEMO[1]} />
       </ul>
     </nav>
   )
 }
 
-const MenuItemController = ({children, item}) => {  
+const MenuItemController = ({item}) => {  
   return (
     <div
       style={{
         margin: '0.5rem 0 0.5rem'
       }}
     >
-      <SubMenu />
+      { !! item.subMenus ?  <SubMenu subMenu={item} /> : <NavItem navItem={item} /> }
     </div>
   )
 }
 
-const NavItem = ({menu}) => {
-  console.log(menu)
+const NavItem = ({navItem}) => {
+  const onNav = e => {
+    e.stopPropagation();
+    e.preventDefault();
+  }
   return (
     <>
-      {/* <NavLink></NavLink> */}
-      {/* <a></a> */}
+      <a
+        href="/#"
+        style={{
+          display: 'flex',
+          alignItems: 'center'
+        }}
+        className={`${css.selectableItem} ${css.animePaddingLeft} ${css.navItem}`}
+        onClick={onNav}
+      >
+        {navItem.icon}
+        <h5 style={{marginLeft: '0.5rem'}}>{navItem.name}</h5>
+      </a>
     </>
   )
 }
 
-const SubMenu = () => {
+const SubMenu = ({subMenu}) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleSubmenu = e => {
-    console.log(e)
     e.stopPropagation();
     setIsOpen(pre => !pre);
   }
@@ -162,10 +161,11 @@ const SubMenu = () => {
           // }}
         >
           {/* <div className={`${css.subMenuItemWrapperInner}`}>Expandable content</div> */}
-          <li className={`${css.selectableItem}`} style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}><SubMenuNavItem menu={MENU_DEMO[0].subMenus[0]}/></li>
-          <li className={`${css.selectableItem}`} style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}><SubMenuNavItem menu={MENU_DEMO[0].subMenus[0]}/></li>
-          <li className={`${css.selectableItem}`} style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}><SubMenuNavItem menu={MENU_DEMO[0].subMenus[0]}/></li>
-          <li className={`${css.selectableItem}`} style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}><SubMenuNavItem menu={MENU_DEMO[0].subMenus[0]}/></li>
+          <li 
+            className={`${css.selectableItem}`} 
+            style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}>
+              <SubMenuNavItem menu={subMenu.subMenus[0]}/>
+          </li>
 
         </ul>
       </div>
@@ -174,7 +174,6 @@ const SubMenu = () => {
 }
 
 const SubMenuNavItem = ({menu}) => {
-  console.log(menu)
   const onNav = e => {
     e.stopPropagation();
     e.preventDefault();
@@ -187,7 +186,7 @@ const SubMenuNavItem = ({menu}) => {
           display: 'flex',
           alignItems: 'center'
         }}
-        className={`${css.animePaddingLeft}`}
+        className={`${css.selectableItem} ${css.animePaddingLeft}`}
         onClick={onNav}
       >
         {menu.icon}
