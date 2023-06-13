@@ -71,15 +71,15 @@ const SlideNav = ({menus=MENU_DEMO}) => {
   return (
     <>
     <div 
-      className={`${css.slideMenu}`}
       style={{
-        height: '100vh'
+        height: '100vh',
+        width: '350px',
       }}
     >
-      <div 
+      <div
+        className={`${css.slideMenu}`}
         style={{
           position: 'relative',
-          width: '300px',
           height: '100%',
           backgroundColor: '#b37feb',
           overflowY: 'scroll'
