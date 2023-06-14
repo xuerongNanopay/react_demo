@@ -26,6 +26,7 @@
 .selectableItem {
   cursor: pointer;
   border-radius: 4px;
+  transition: padding 250ms ease-out;
 }
 
 .selectableItem:hover {
@@ -35,7 +36,6 @@
 
 .animePaddingLeft:hover {
   padding-left: 0.6rem;
-  transition: padding 250ms ease-out;
 }
 
 .navItem {
