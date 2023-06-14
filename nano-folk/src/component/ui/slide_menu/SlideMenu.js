@@ -2,20 +2,12 @@
 // This UI component needs NavLink. TODO: need to make it more general.
 import css from './SlideMenu.module.css'
 import { 
-  Link
+  useNavigate
 } from "react-router-dom";
 
-import { BsBank} from "react-icons/bs";
+import { BsBank } from "react-icons/bs";
 
 import { useState } from 'react'
-
-//menus is a list
-
-// [
-//   {name: 'transaction', element, to: 'to', submenus: []}
-//   {name: 'login', to: '/'}
-// ]
-// redirection should only trigger when
 
 const MENU_DEMO = [
   {
@@ -104,9 +96,12 @@ const MenuItemController = ({item}) => {
 }
 
 const NavItem = ({navItem}) => {
+  const navigate = useNavigate();
+
   const onNav = e => {
     e.stopPropagation();
     e.preventDefault();
+    navigate(navItem.to);
   }
   return (
     <>
@@ -164,7 +159,7 @@ const SubMenu = ({subMenu}) => {
             className={`${css.selectableItem}`} 
             style={{paddingLeft: '1.2rem'}}>
               {
-                subMenu.subMenus.map((subMenuItem) => <SubMenuNavItem key={subMenu.id + '.' + subMenuItem.id} parent={subMenu} menu={subMenuItem}/>)
+                subMenu.subMenus.map((subMenuItem) => <SubMenuNavItem key={subMenu.id + '.' + subMenuItem.id} parent={subMenu} subMenuItem={subMenuItem}/>)
               }
           </li>
         </ul>
@@ -173,10 +168,12 @@ const SubMenu = ({subMenu}) => {
   )
 }
 
-const SubMenuNavItem = ({menu}) => {
+const SubMenuNavItem = ({subMenuItem}) => {
+  const navigate = useNavigate();
   const onNav = e => {
     e.stopPropagation();
     e.preventDefault();
+    navigate(subMenuItem.to);
   }
   return (
     <>
@@ -189,8 +186,8 @@ const SubMenuNavItem = ({menu}) => {
         className={`${css.subMenuItem} ${css.selectableItem} ${css.animePaddingLeft}`}
         onClick={onNav}
       >
-        {menu.icon}
-        <span style={{marginLeft: '0.5rem'}}>{menu.name}</span>
+        {subMenuItem.icon}
+        <span style={{marginLeft: subMenuItem.icon ? '0.5rem' : '0rem'}}>{subMenuItem.name}</span>
       </a>
     </>
   )
