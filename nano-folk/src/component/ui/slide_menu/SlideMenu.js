@@ -103,11 +103,7 @@ const Menu = () => {
 
 const MenuItemController = ({item}) => {  
   return (
-    <div
-      style={{
-        margin: '0.5rem 0 0.5rem'
-      }}
-    >
+    <div>
       { !! item.subMenus ?  <SubMenu subMenu={item} /> : <NavItem navItem={item} /> }
     </div>
   )

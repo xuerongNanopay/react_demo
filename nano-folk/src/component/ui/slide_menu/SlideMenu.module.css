@@ -1,6 +1,8 @@
 .sideNav {
   --sideNav-backgroud-color: #fafafa;
   --sideNav-font-color: #595959;
+  --sideNav-selectableItem-backgroud-color-hover: #d9d9d9;
+  --sideNav-subMenu-open-text-color: #262626;
   background-color: var(--sideNav-backgroud-color);
 }
 .sideNav * {
@@ -28,7 +30,7 @@
 
 .selectableItem:hover {
   cursor: pointer;
-  background-color: #d9d9d9;
+  background-color: var(--sideNav-selectableItem-backgroud-color-hover);
 }
 
 .animePaddingLeft:hover {
@@ -37,7 +39,7 @@
 }
 
 .navItem {
-  padding: 0.8rem 0.2rem 0.8rem 0.2rem;
+  padding: 0.7rem 0.2rem 0.7rem 0.2rem;
 }
 
 .subMenuItemMain {
@@ -50,16 +52,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 0.4rem 0.8rem 0.2rem;
+  padding: 0.7rem 0.4rem 0.7rem 0.2rem;
+  transition: padding 0.3s ease-out;
 }
 
 .subMenuItemHeaderOpen {
   /* background-color: #d9d9d9; */
+  padding: 0.7rem 0.4rem 0rem 0.2rem;
   /* color: #FFF; */
 }
 
 .subMenuItemHeaderOpen > h5 {
-  color: #262626;
+  color: var(--sideNav-subMenu-open-text-color);
 }
 
 .subMenuItemWrapper {
@@ -81,7 +85,7 @@
 }
 
 .iconArrow {
-  border: solid #595959;
+  border: solid var(--sideNav-font-color);
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
@@ -93,7 +97,7 @@
 }
 
 .iconArrowUp {
-  border-color: #262626;
+  border-color: var( --sideNav-subMenu-open-text-color);
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
 }
