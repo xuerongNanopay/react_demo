@@ -34,7 +34,7 @@
 }
 
 .animePaddingLeft:hover {
-  padding-left: 0.5rem;
+  padding-left: 0.6rem;
   transition: padding 250ms ease-out;
 }
 
