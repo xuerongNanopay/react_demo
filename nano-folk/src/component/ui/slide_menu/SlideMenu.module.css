@@ -69,7 +69,7 @@
 .subMenuItemWrapper {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s ease-out;
+  transition: grid-template-rows 250ms ease-out;
 }
 
 .subMenuItemWrapperInner {

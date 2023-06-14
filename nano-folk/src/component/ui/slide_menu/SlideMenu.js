@@ -54,14 +54,13 @@ const MENU_DEMO = [
   },
 ]
 
-const SideNav = ({menus=MENU_DEMO}) => {
-  const [ test, setTest ] = useState(false);
+const SideNav = ({menus=MENU_DEMO, style}) => {
   return (
     <>
     <div 
       style={{
-        height: '100vh',
-        width: '350px',
+        height: style?.height ? style.height : '100vh',
+        width: style?.width ? style.width : '350px',
       }}
     >
       <div
@@ -75,17 +74,6 @@ const SideNav = ({menus=MENU_DEMO}) => {
         <Menu />
       </div>
     </div>
-      <button 
-        type="button"
-        style={{
-          position: 'fixed',
-          right: '50px',
-          top: '50px'
-        }}
-        onClick={() => setTest(!test)}
-      >
-        Testaa
-      </button>
     </>
   )
 }
