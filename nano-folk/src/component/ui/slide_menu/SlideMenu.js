@@ -2,11 +2,10 @@
 // This UI component needs NavLink. TODO: need to make it more general.
 import css from './SlideMenu.module.css'
 import { 
-  NavLink,
   Link
 } from "react-router-dom";
 
-import { BsBell, BsSend, BsBank, BsGrid1X2, BsPeople, BsCardText } from "react-icons/bs";
+import { BsBank} from "react-icons/bs";
 
 import { useState } from 'react'
 
@@ -23,11 +22,12 @@ const MENU_DEMO = [
     id: 'dashboard',
     name: 'Dashboard',
     to: '/signIn',
+    icon: <BsBank/>,
     handler: () => {console.log("TODO: handler")},
     subMenus: [
       {
-        id: 'contacts',
-        name: 'AAAAAAA',
+        id: 'rate',
+        name: 'Rate',
         to: '/signIn',
         icon: <BsBank/>
       }
@@ -44,14 +44,16 @@ const MENU_DEMO = [
     id: 'contacts',
     name: 'Contacts',
     to: '/signIn',
+    icon: <BsBank/>,
     subMenus: undefined
   },
   {
     id: 'myAccounts',
     name: 'My Accounts',
     to: '/signIn',
+    icon: <BsBank/>,
     subMenus: undefined
-  },
+  }
 ]
 
 const SideNav = ({menus=MENU_DEMO, style}) => {
@@ -70,20 +72,24 @@ const SideNav = ({menus=MENU_DEMO, style}) => {
           width: '100%',
           overflowY: 'scroll'
         }}
+        onScroll={e => e.stopPropagation()}
       >
-        <Menu />
+        <Menu menus={MENU_DEMO}/>
       </div>
     </div>
     </>
   )
 }
 
-const Menu = () => {
+const Menu = ({menus}) => {
   return (
     <nav className={`${css.menu}`}>
       <ul>
-        <MenuItemController item={MENU_DEMO[0]} />
-        <MenuItemController item={MENU_DEMO[1]} />
+        {
+          menus.map(menu => {
+            return <MenuItemController key={menu.id} item={menu} />
+          })
+        }
       </ul>
     </nav>
   )
@@ -139,23 +145,28 @@ const SubMenu = ({subMenu}) => {
           `} 
         onClick={toggleSubmenu}
       >
-        <h5>AAA</h5> 
+        <h5
+          style={{
+            display: 'flex',
+            alignItems: 'center'
+          }}
+        >
+          {subMenu.icon}
+          <span style={{marginLeft: !!subMenu.icon ? '0.5rem' : '0rem'}}>{subMenu.name}</span>
+        </h5> 
         {isOpen ? IconArrowUp : IconArrowDown}
       </div>
       <div className={`${css.subMenuItemWrapper} ${isOpen ? css.subMenuItemWrapperInnerOpen : ''}`}>
         <ul 
           className={`${css.subMenuItemWrapperInner}`}
-          // style={{
-          //   paddingLeft: '1rem'
-          // }}
         >
-          {/* <div className={`${css.subMenuItemWrapperInner}`}>Expandable content</div> */}
           <li 
             className={`${css.selectableItem}`} 
             style={{paddingLeft: '1.2rem'}}>
-              <SubMenuNavItem menu={subMenu.subMenus[0]}/>
+              {
+                subMenu.subMenus.map((subMenuItem) => <SubMenuNavItem key={subMenu.id + '.' + subMenuItem.id} parent={subMenu} menu={subMenuItem}/>)
+              }
           </li>
-
         </ul>
       </div>
     </div>
