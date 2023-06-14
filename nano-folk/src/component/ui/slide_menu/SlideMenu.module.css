@@ -62,7 +62,7 @@
   /* color: #FFF; */
 }
 
-.subMenuItemHeaderOpen > h5 {
+.subMenuItemHeaderOpen > h5 > span {
   color: var(--sideNav-subMenu-open-text-color);
 }
 
