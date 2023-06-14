@@ -163,7 +163,7 @@ const SubMenu = ({subMenu}) => {
           {/* <div className={`${css.subMenuItemWrapperInner}`}>Expandable content</div> */}
           <li 
             className={`${css.selectableItem}`} 
-            style={{paddingLeft: '1.2rem', marginTop: '0.3rem'}}>
+            style={{paddingLeft: '1.2rem'}}>
               <SubMenuNavItem menu={subMenu.subMenus[0]}/>
           </li>
 
@@ -186,7 +186,7 @@ const SubMenuNavItem = ({menu}) => {
           display: 'flex',
           alignItems: 'center'
         }}
-        className={`${css.selectableItem} ${css.animePaddingLeft}`}
+        className={`${css.subMenuItem} ${css.selectableItem} ${css.animePaddingLeft}`}
         onClick={onNav}
       >
         {menu.icon}

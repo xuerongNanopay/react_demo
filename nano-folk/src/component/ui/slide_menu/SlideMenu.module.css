@@ -37,7 +37,7 @@
 }
 
 .navItem {
-  padding: 0.3rem 0.2rem 0.3rem 0.2rem;
+  padding: 0.8rem 0.2rem 0.8rem 0.2rem;
 }
 
 .subMenuItemMain {
@@ -50,11 +50,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.3rem 0.2rem 0.3rem 0.2rem;
+  padding: 0.8rem 0.4rem 0.8rem 0.2rem;
 }
 
 .subMenuItemHeaderOpen {
-  background-color: #d9d9d9;
+  /* background-color: #d9d9d9; */
   /* color: #FFF; */
 }
 
@@ -76,6 +76,10 @@
   grid-template-rows: 1fr;
 }
 
+.subMenuItem {
+  padding: 0.4rem 0.2rem 0.4rem 0.2rem;
+}
+
 .iconArrow {
   border: solid #595959;
   border-width: 0 3px 3px 0;
@@ -89,6 +93,7 @@
 }
 
 .iconArrowUp {
+  border-color: #262626;
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
 }
