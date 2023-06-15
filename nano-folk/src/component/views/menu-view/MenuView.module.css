@@ -1,0 +1,41 @@
+.container, .container * {
+  box-sizing: border-box;
+  color: #000;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-color: aquamarine;
+}
+
+.navbar {
+  position: sticky;
+  padding: 0.2rem 1rem 0.2rem 1rem;
+  background-color: darkcyan;
+}
+
+.navBarInner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navBarItems {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+
+.navBarItemsRight {
+  flex: 0 0 auto;
+    justify-content: flex-end;
+}
+
+.navBarItem {
+  display: inline-block;
+  padding: 0 1rem 0 1rem;
+}

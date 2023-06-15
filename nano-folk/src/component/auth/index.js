@@ -66,7 +66,12 @@ const UserApp = () => {
               true ? <UserNav/> : <UserProfileNav/>
             }
           </nav>
-          <article className={`col-12 col-md-9 col-xl-8`}>
+          <article 
+            className={`col-12 col-md-9 col-xl-8`}
+            style={{
+              overscrollBehavior: 'container'
+            }}
+          >
             {/* Routes */}
             <h1>88888888 ***************** *****************</h1>
             <h1> 111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111  111111 11111 11111 </h1>

@@ -8,6 +8,7 @@ import ForgetPassword from './component/unauth/ForgetPassword'
 import VerifyEmail from './component/unauth/VerifyEmail'
 import UserApp from 'component/auth'
 import SlideMenu from 'component/ui/slide_menu/SlideMenu'
+import MenuView from 'component/views/menu-view/MenuView'
 
 import {
   Routes,
@@ -28,6 +29,7 @@ const App = _ => {
         <Route path="/verifyEmail" element={<VerifyEmail/>}/>
         <Route path="/user" element={<UserApp/>}/>
         <Route path="/test" element={<SlideMenu />} />
+        <Route path="/menu-view" element={<MenuView />} />
 
         {/* <Route path="/service2" element={<Service2/>}>
           <Route index element={<Navigate to="news"/>} />
