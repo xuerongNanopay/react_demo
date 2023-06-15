@@ -3,7 +3,7 @@ import css from './MenuView.module.css'
 const MenuView = () => {
   return (
     <div className={`${css.container}`}>
-      <nav className={`${css.navbar}`}>
+      <nav className={`${css.navbar} ${css.navbarFixedTop}`}>
         <div className={`${css.navBarInner}`}>
           <div className={`${css.navBarItems}`}>
             <HambugerIcon/>
@@ -16,6 +16,81 @@ const MenuView = () => {
           </div>
         </div>
       </nav>
+      <div
+        className={`${css.docWrapper}`}
+      >
+        <aside className={`${css.sidebarContainer}`}>
+          <div className={`${css.sidebarViewpoint}`}>
+            <div className={`${css.sidebarViewpointAdjustment}`}>
+              <nav className={`${css.menu}`}>
+                <ul>
+                  <li><h1>^^^^^^^</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>AAAAAA</h1></li>
+                  <li><h1>BBBBBB</h1></li>
+                  <li><h1>BBBBBB</h1></li>
+                  <li><h1>BBBBBB</h1></li>
+                  <li><h1>BBBBBB</h1></li>
+                  <li><h1>BBBBBB</h1></li>
+                  <li><h1>BBBBBB</h1></li>
+                  <li><h1>BBBBBB</h1></li>
+
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </aside>
+        <main>
+          <h1>#####</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+          <h1>AAAA</h1>
+        </main>
+      </div>
     </div>
   )
 }
