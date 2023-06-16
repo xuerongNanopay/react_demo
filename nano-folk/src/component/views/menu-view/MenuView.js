@@ -1,20 +1,28 @@
-import { useEffect  } from 'react'
+import { useEffect, useState  } from 'react'
 import css from './MenuView.module.css'
 
+const MOBILE_SIZE = 997;
 const MenuView = () => {
+  const [ showNavSideBar, setShowNavSideBar ] = useState(false);
+
   useEffect( _ => {
-    // const handleResize = _ => {
-    //   // console.log('resized to: ', window.innerWidth, 'x', window.innerHeight)
-    // }
-    // window.addEventListener('resize', handleResize)
-    // return _ => window.removeEventListener('resize', handleResize)
+    const handleResize = _ => {
+      if ( window.innerWidth < MOBILE_SIZE ) {
+        setShowNavSideBar(true);
+      } else {
+        setShowNavSideBar(false)
+      }
+    }
+    handleResize();
+    window.addEventListener('resize', handleResize)
+    return _ => window.removeEventListener('resize', handleResize)
   })
   return (
     <div className={`${css.container}`}>
       <nav className={`${css.navbar} ${css.navbarFixedTop}`}>
         <div className={`${css.navBarInner}`}>
           <div className={`${css.navBarItems}`}>
-            <HambugerIcon/>
+            <button><HambugerIcon/></button>
             <a href='/#' className={`${css.navBarItem}`}>Demo1</a>
             <a href='/#' className={`${css.navBarItem}`}>Demo2</a>
           </div>
@@ -22,6 +30,12 @@ const MenuView = () => {
             <a href='/#' className={`${css.navBarItem}`}>Demo4</a>
             <a href='/#' className={`${css.navBarItem}`}><h1>Demo5</h1></a>
           </div>
+        </div>
+        {
+          showNavSideBar ? <NavSideBar/> : <></>
+        }
+        <div className={`${css.navSideBar}`}>
+          
         </div>
       </nav>
       <div
@@ -99,6 +113,14 @@ const MenuView = () => {
           <h1>AAAA</h1>
         </main>
       </div>
+    </div>
+  )
+}
+
+const NavSideBar = () => {
+  return (
+    <div className={`${css.navSideBar}`}>
+      This is navSidebar
     </div>
   )
 }
