@@ -1,6 +1,14 @@
+import { useEffect  } from 'react'
 import css from './MenuView.module.css'
 
 const MenuView = () => {
+  useEffect( _ => {
+    // const handleResize = _ => {
+    //   // console.log('resized to: ', window.innerWidth, 'x', window.innerHeight)
+    // }
+    // window.addEventListener('resize', handleResize)
+    // return _ => window.removeEventListener('resize', handleResize)
+  })
   return (
     <div className={`${css.container}`}>
       <nav className={`${css.navbar} ${css.navbarFixedTop}`}>
@@ -24,7 +32,7 @@ const MenuView = () => {
             <div className={`${css.sidebarViewpointAdjustment}`}>
               <nav className={`${css.menu}`}>
                 <ul>
-                  <li><h1>^^^^^^^</h1></li>
+                  <li><h1>GGGGG</h1></li>
                   <li><h1>AAAAAA</h1></li>
                   <li><h1>AAAAAA</h1></li>
                   <li><h1>AAAAAA</h1></li>
@@ -100,7 +108,7 @@ const HambugerIcon = ({size}) => {
     <svg 
       stroke="currentColor" 
       fill="currentColor" 
-      stroke-width="0" 
+      strokeWidth="0" 
       viewBox="0 0 512 512" 
       height={!!size ? size: "2rem"}
       width={!!size ? size: "2rem"}
