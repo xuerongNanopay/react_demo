@@ -8,6 +8,7 @@
 .container {
   --navbar-height: 3.75rem;
   --navSidebar-width: 55vw;
+  --transition-duration: 0.5s;
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -112,7 +113,7 @@
   background-color: blueviolet;
   width: var(--navSidebar-width);
   transform: translate3d(-100%,0,0);
-  transition: transform 0.5s ease-in-out;
+  transition: transform var(--transition-duration) ease-in-out;
 }
 
 .navSideBarShow {
@@ -137,4 +138,23 @@
   flex-shrink: 0;
   padding: 0.5rem;
   width: var(--navSidebar-width);
+}
+
+.navSideBarBackDrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  background-color: #0009;
+  transition-timing-function: ease-in-out;
+  transition-duration: var(--transition-duration);
+}
+
+.navSideBarBackDropShow {
+  right: 0;
+  opacity: 1;
+  visibility: visible;
+  transition-property: opacity,visibility;
 }
