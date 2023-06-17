@@ -1,10 +1,12 @@
-import { useEffect, useState  } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import css from './MenuView.module.css'
 
 const MOBILE_SIZE = 997;
 const MenuView = () => {
   const [ showNavSideBar, setShowNavSideBar ] = useState(false);
   const [ toggleNavSideBar, setToggleNavSiedBar] = useState(false);
+  const navSideBarRef = useRef();
+  const navSideBarToggleButtonRef = useRef();
 
   useEffect( _ => {
     const handleResize = _ => {
@@ -20,6 +22,16 @@ const MenuView = () => {
   })
 
   useEffect( _ => {
+    const handleOutsideNavSidebarClick = (e) => {
+      if ( navSideBarToggleButtonRef.current.contains(e.target) ) return;
+      if ( navSideBarRef.current.contains(e.target) ) return;
+      if ( toggleNavSideBar ) setToggleNavSiedBar(false);
+    }
+    window.addEventListener('click', handleOutsideNavSidebarClick);
+    return _ => window.removeEventListener('click', handleOutsideNavSidebarClick);
+  })
+
+  useEffect( _ => {
     if ( showNavSideBar && toggleNavSideBar ) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -30,12 +42,22 @@ const MenuView = () => {
       document.body.style.overflow = 'visible'
     }
   }, [showNavSideBar, toggleNavSideBar])
+
+
   return (
     <div className={`${css.container}`}>
       <nav className={`${css.navbar} ${css.navbarFixedTop}`}>
         <div className={`${css.navBarInner}`}>
           <div className={`${css.navBarItems}`}>
-            <button onClick ={_ => setToggleNavSiedBar((cur) => !cur)}><HambugerIcon/></button>
+            {
+              showNavSideBar ? 
+                <button 
+                  onClick ={_ => setToggleNavSiedBar((cur) => !cur)}
+                  ref={navSideBarToggleButtonRef}
+                >
+                  <HambugerIcon/>
+                </button> : <></>
+            }
             <a href='/#' className={`${css.navBarItem}`}>Demo1</a>
             <a href='/#' className={`${css.navBarItem}`}>Demo2</a>
           </div>
@@ -44,18 +66,20 @@ const MenuView = () => {
             <a href='/#' className={`${css.navBarItem}`}><h1>Demo5</h1></a>
           </div>
         </div>
+        <div className={`${css.navSideBarBackDrop} ${toggleNavSideBar ? css.navSideBarBackDropShow : ''}`}></div>
         {
           showNavSideBar ? 
           (
-            <div className={`${css.navSideBar} ${toggleNavSideBar? css.navSideBarShow : ''}`}>
+            <div ref={navSideBarRef} className={`${css.navSideBar} ${toggleNavSideBar? css.navSideBarShow : ''}`}>
               <div className={`${css.navSideBarBrand}`}>
                 <h4>NBP</h4>
                 <button onClick ={_ => setToggleNavSiedBar((cur) => !cur)}>
                   <CloseIcon/>
                 </button>
               </div>
-              <div className={`${css.navSideBarItems}`}>
+              <div className={`${css.navSideBarItems} ${css.navSideBarItemSecond}`}>
                 <div className={`${css.navSideBarItem} ${css.menu}`}>
+                  <button type='button'>Go next -----</button>
                   <h1>111bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</h1>
                   <h1>bbbbb</h1>
                   <h1>bbbbb</h1>
@@ -66,27 +90,19 @@ const MenuView = () => {
                   <h1>bbbbb</h1>
                   <h1>bbbbb</h1>
                   <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
+                </div>
+                <div className={`${css.navSideBarItem} ${css.menu}`}>
+                  <button type='button'>Go Pre -----</button>
+                  <h1>111ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
                 </div>
               </div>
             </div>
