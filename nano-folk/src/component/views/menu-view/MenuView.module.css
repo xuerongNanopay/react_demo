@@ -120,6 +120,10 @@
   transform: translateX(0);
 }
 
+.menu,.navSideBar {
+  overflow-x: hidden;
+}
+
 .navSideBarBrand {
   display: flex;
   justify-content: space-between;
@@ -131,10 +135,11 @@
 .navSideBarItems {
   display: flex;
   height: calc(100% - var(--navbar-height));
-  background-color: yellowgreen;
+  background-color: rgb(158, 227, 20);
 }
 
 .navSideBarItem {
+  background-color: inherit;
   flex-shrink: 0;
   padding: 0.5rem;
   width: var(--navSidebar-width);
@@ -157,4 +162,8 @@
   opacity: 1;
   visibility: visible;
   transition-property: opacity,visibility;
+}
+
+.navSideBarItemSecond {
+  transform: translate3d(calc((var(--navSidebar-width))*-1),0,0);
 }

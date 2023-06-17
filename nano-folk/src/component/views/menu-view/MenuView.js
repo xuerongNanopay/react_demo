@@ -77,8 +77,9 @@ const MenuView = () => {
                   <CloseIcon/>
                 </button>
               </div>
-              <div className={`${css.navSideBarItems}`}>
+              <div className={`${css.navSideBarItems} ${css.navSideBarItemSecond}`}>
                 <div className={`${css.navSideBarItem} ${css.menu}`}>
+                  <button type='button'>Go next -----</button>
                   <h1>111bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</h1>
                   <h1>bbbbb</h1>
                   <h1>bbbbb</h1>
@@ -89,27 +90,19 @@ const MenuView = () => {
                   <h1>bbbbb</h1>
                   <h1>bbbbb</h1>
                   <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
-                  <h1>bbbbb</h1>
+                </div>
+                <div className={`${css.navSideBarItem} ${css.menu}`}>
+                  <button type='button'>Go Pre -----</button>
+                  <h1>111ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
+                  <h1>ZZZZZZ</h1>
                 </div>
               </div>
             </div>
