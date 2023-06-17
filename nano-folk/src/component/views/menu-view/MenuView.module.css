@@ -39,7 +39,7 @@
   min-width: 0;
 }
 
-.navBarItems > button {
+.navbar button {
   background-color: transparent;
   border: 0px;
 }
@@ -104,5 +104,24 @@
 }
 
 .navSideBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: blueviolet;
+  width: 50vw;
+  transform: translate3d(-100%,0,0);
+  transition: transform 0.5s ease-in-out;
+}
+
+.navSideBarShow {
+  transform: translateZ(0);
+}
+
+.navSideBarBrand {
+
+}
+
+.navSideBarItems {
 
 }

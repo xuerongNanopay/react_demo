@@ -4,6 +4,7 @@ import css from './MenuView.module.css'
 const MOBILE_SIZE = 997;
 const MenuView = () => {
   const [ showNavSideBar, setShowNavSideBar ] = useState(false);
+  const [ toggleNavSideBar, setToggleNavSiedBar] = useState(false);
 
   useEffect( _ => {
     const handleResize = _ => {
@@ -22,7 +23,7 @@ const MenuView = () => {
       <nav className={`${css.navbar} ${css.navbarFixedTop}`}>
         <div className={`${css.navBarInner}`}>
           <div className={`${css.navBarItems}`}>
-            <button><HambugerIcon/></button>
+            <button onClick ={_ => setToggleNavSiedBar((cur) => !cur)}><HambugerIcon/></button>
             <a href='/#' className={`${css.navBarItem}`}>Demo1</a>
             <a href='/#' className={`${css.navBarItem}`}>Demo2</a>
           </div>
@@ -32,11 +33,21 @@ const MenuView = () => {
           </div>
         </div>
         {
-          showNavSideBar ? <NavSideBar/> : <></>
+          showNavSideBar ? 
+          (
+            <div className={`${css.navSideBar} ${toggleNavSideBar? css.navSideBarShow : ''}`}>
+              <div className={`${css.navSideBarBrand}`}>
+                <button onClick ={_ => setToggleNavSiedBar((cur) => !cur)}>
+                  <CloseIcon/>
+                </button>
+              </div>
+              <div className={`${css.navSideBarItems}`}>
+                <h1>bbbbb</h1>
+              </div>
+            </div>
+          )
+          :<></>
         }
-        <div className={`${css.navSideBar}`}>
-          
-        </div>
       </nav>
       <div
         className={`${css.docWrapper}`}
@@ -120,7 +131,11 @@ const MenuView = () => {
 const NavSideBar = () => {
   return (
     <div className={`${css.navSideBar}`}>
-      This is navSidebar
+      <h1>TTTDDDDD</h1>
+      <h1>TTTDDDDD</h1>
+      <p>TTTDDDDD</p>
+      <h1>TTTDDDDD</h1>
+      <h1>TTTDDDDD</h1>
     </div>
   )
 }
@@ -138,6 +153,23 @@ const HambugerIcon = ({size}) => {
     >
       <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z">
       </path>
+    </svg>
+  )
+}
+
+const CloseIcon = () => {
+  return (
+    <svg 
+      viewBox="0 0 15 15" 
+      width="21" 
+      height="21"
+    >
+      <g 
+        stroke="#8d949e" 
+        strokeWidth="1.2"
+      >
+        <path d="M.75.75l13.5 13.5M14.25.75L.75 14.25"></path>
+      </g>
     </svg>
   )
 }
