@@ -32,6 +32,7 @@ const App = _ => {
         <Route path="/test" element={<SlideMenu />} />
         <Route path="/menu-view" element={<MenuView />} />
         <Route path="/flinks" element={<FlinksIframe />} />
+        <Route path="*" element={<div>PageNotFound</div>}/>
 
         {/* <Route path="/service2" element={<Service2/>}>
           <Route index element={<Navigate to="news"/>} />
