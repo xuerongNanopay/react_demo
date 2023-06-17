@@ -37,6 +37,7 @@ const MenuView = () => {
           (
             <div className={`${css.navSideBar} ${toggleNavSideBar? css.navSideBarShow : ''}`}>
               <div className={`${css.navSideBarBrand}`}>
+                <h4>NBP</h4>
                 <button onClick ={_ => setToggleNavSiedBar((cur) => !cur)}>
                   <CloseIcon/>
                 </button>

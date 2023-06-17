@@ -119,7 +119,11 @@
 }
 
 .navSideBarBrand {
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.75rem;
+  padding: 0.2rem 0.4rem 0.2rem 0.4rem;
 }
 
 .navSideBarItems {
