@@ -136,6 +136,7 @@
   display: flex;
   height: calc(100% - var(--navbar-height));
   background-color: rgb(158, 227, 20);
+  transition: transform var(--transition-duration) ease-in-out;
 }
 
 .navSideBarItem {

@@ -5,6 +5,8 @@ const MOBILE_SIZE = 997;
 const MenuView = () => {
   const [ showNavSideBar, setShowNavSideBar ] = useState(false);
   const [ toggleNavSideBar, setToggleNavSiedBar] = useState(false);
+  const [ nextNavSideBarMenu, setNextNavSideBarMenu ] = useState(false);
+
   const navSideBarRef = useRef();
   const navSideBarToggleButtonRef = useRef();
 
@@ -77,9 +79,12 @@ const MenuView = () => {
                   <CloseIcon/>
                 </button>
               </div>
-              <div className={`${css.navSideBarItems} ${css.navSideBarItemSecond}`}>
+              <div className={`${css.navSideBarItems} ${ nextNavSideBarMenu ? css.navSideBarItemSecond : ''}`}>
                 <div className={`${css.navSideBarItem} ${css.menu}`}>
-                  <button type='button'>Go next -----</button>
+                  <button 
+                    type='button'
+                    onClick={_ => setNextNavSideBarMenu(true)}
+                  >Go next -----</button>
                   <h1>111bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</h1>
                   <h1>bbbbb</h1>
                   <h1>bbbbb</h1>
@@ -92,7 +97,10 @@ const MenuView = () => {
                   <h1>bbbbb</h1>
                 </div>
                 <div className={`${css.navSideBarItem} ${css.menu}`}>
-                  <button type='button'>Go Pre -----</button>
+                  <button 
+                    type='button'
+                    onClick={_ => setNextNavSideBarMenu(false)}
+                  >Go Pre -----</button>
                   <h1>111ZZZZZZ</h1>
                   <h1>ZZZZZZ</h1>
                   <h1>ZZZZZZ</h1>
