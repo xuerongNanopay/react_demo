@@ -18,6 +18,18 @@ const MenuView = () => {
     window.addEventListener('resize', handleResize)
     return _ => window.removeEventListener('resize', handleResize)
   })
+
+  useEffect( _ => {
+    if ( showNavSideBar && toggleNavSideBar ) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'visible';
+    }
+
+    return () => {
+      document.body.style.overflow = 'visible'
+    }
+  }, [showNavSideBar, toggleNavSideBar])
   return (
     <div className={`${css.container}`}>
       <nav className={`${css.navbar} ${css.navbarFixedTop}`}>
@@ -43,7 +55,39 @@ const MenuView = () => {
                 </button>
               </div>
               <div className={`${css.navSideBarItems}`}>
-                <h1>bbbbb</h1>
+                <div className={`${css.navSideBarItem} ${css.menu}`}>
+                  <h1>111bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                  <h1>bbbbb</h1>
+                </div>
               </div>
             </div>
           )
@@ -58,7 +102,7 @@ const MenuView = () => {
             <div className={`${css.sidebarViewpointAdjustment}`}>
               <nav className={`${css.menu}`}>
                 <ul>
-                  <li><h1>GGGGG</h1></li>
+                  <li><h1>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG</h1></li>
                   <li><h1>AAAAAA</h1></li>
                   <li><h1>AAAAAA</h1></li>
                   <li><h1>AAAAAA</h1></li>
