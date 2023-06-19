@@ -255,6 +255,8 @@ const SendMoneyModal = ({}) => {
         onHide={handleClose} 
         centered
         backdrop='static'
+        fullscreen='sm-down'
+        size='lg'
       >
         <Modal.Header closeButton>
           <Modal.Title>Send Money</Modal.Title>
@@ -297,7 +299,40 @@ const SendMoneyModal = ({}) => {
                 <Form.Control type="number"/>
               </InputGroup>
             </Form.Group>
+            <Form.Group
+              className="mb-3"
+              controlId="sendAmount"
+            >
+              <Form.Label>Recipient Receives</Form.Label>
+              <InputGroup>
+                <InputGroup.Text>PKR</InputGroup.Text>
+                <Form.Control type="number" disabled value={44.4}/>
+              </InputGroup>
+            </Form.Group>
           </Form>
+          <hr/>
+          <div>
+            <div style={{display: 'flex',justifyContent: 'space-between'}}>
+              <span>Amount To Be Converted</span> 
+              <span>$9.22 CAD</span>
+            </div>
+            <div style={{display: 'flex',justifyContent: 'space-between'}}>
+              <span>Exchange Rate</span> 
+              <span style={{color: '#1A6B54'}}>$1.00 CAD = 205.47 PKR</span>
+            </div>
+            <div style={{display: 'flex',justifyContent: 'space-between'}}>
+              <span>Amount To Be Received</span> 
+              <span>205.47 PKR</span>
+            </div>
+            <div style={{display: 'flex',justifyContent: 'space-between'}}>
+              <span>Transaction Fee</span> 
+              <span>$8.22 CAD</span>
+            </div>
+            <div style={{display: 'flex',justifyContent: 'space-between', fontWeight: '600'}}>
+              <span>Amount To Be Debited</span> 
+              <span>$9.22 CAD</span>
+            </div>
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
