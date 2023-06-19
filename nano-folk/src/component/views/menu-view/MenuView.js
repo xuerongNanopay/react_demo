@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef } from 'react'
 import css from './MenuView.module.css'
 
+import SideNav from 'component/ui/side_nav/SideNav';
+
 const MOBILE_SIZE = 997;
 const MenuView = () => {
   const [ showNavSideBar, setShowNavSideBar ] = useState(false);
@@ -23,8 +25,11 @@ const MenuView = () => {
     return _ => window.removeEventListener('resize', handleResize)
   })
 
+  //TODO: component sideNavBar, this effect should only attach when sideNavBar is available
   useEffect( _ => {
     const handleOutsideNavSidebarClick = (e) => {
+      if ( ! showNavSideBar ) return;
+      if ( ! toggleNavSideBar ) return;
       if ( navSideBarToggleButtonRef.current.contains(e.target) ) return;
       if ( navSideBarRef.current.contains(e.target) ) return;
       if ( toggleNavSideBar ) setToggleNavSiedBar(false);
@@ -44,6 +49,12 @@ const MenuView = () => {
       document.body.style.overflow = 'visible'
     }
   }, [showNavSideBar, toggleNavSideBar])
+
+  const sendMoney = e => {
+    e.preventDefault();
+    
+    console.log('Send Money');
+  }
 
 
   return (
@@ -126,36 +137,7 @@ const MenuView = () => {
             <div className={`${css.sidebarViewpointAdjustment}`}>
               <nav className={`${css.menu}`}>
                 <ul>
-                  <li><h1>GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>AAAAAA</h1></li>
-                  <li><h1>BBBBBB</h1></li>
-                  <li><h1>BBBBBB</h1></li>
-                  <li><h1>BBBBBB</h1></li>
-                  <li><h1>BBBBBB</h1></li>
-                  <li><h1>BBBBBB</h1></li>
-                  <li><h1>BBBBBB</h1></li>
-                  <li><h1>BBBBBB</h1></li>
-
+                  <li><a href='/#' onClick={sendMoney}>Send Money</a></li>
                 </ul>
               </nav>
             </div>

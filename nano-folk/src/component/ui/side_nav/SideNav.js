@@ -1,6 +1,6 @@
 // Slide Menu with support of sub-menus
 // This UI component needs NavLink. TODO: need to make it more general.
-import css from './SlideMenu.module.css'
+import css from './SideNav.module.css'
 import { 
   useNavigate
 } from "react-router-dom";

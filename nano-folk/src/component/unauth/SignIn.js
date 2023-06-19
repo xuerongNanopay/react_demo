@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup'
 import { FaEye, FaEyeSlash } from "react-icons/fa"
-
+import { authService } from 'service/auth';
 import {
   useNavigate
 } from 'react-router-dom'
@@ -21,7 +21,8 @@ const SignIn = ({children}) => {
   const onFormSubmit = (e) => {
     e.preventDefault()
     e.stopPropagation()
-    alert("TODO: onFormSubmit")
+    authService.login();
+    // alert("TODO: onFormSubmit")
   }
   const toggleShowPassword = e => {
     e.stopPropagation()

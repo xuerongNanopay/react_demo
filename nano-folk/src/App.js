@@ -7,7 +7,7 @@ import MainMenu from './component/auth'
 import ForgetPassword from './component/unauth/ForgetPassword'
 import VerifyEmail from './component/unauth/VerifyEmail'
 import UserApp from 'component/auth'
-import SlideMenu from 'component/ui/slide_menu/SlideMenu'
+import SlideMenu from 'component/ui/side_nav/SideNav'
 import MenuView from 'component/views/menu-view/MenuView'
 import FlinksIframe from 'component/flinks/flinks'
 
