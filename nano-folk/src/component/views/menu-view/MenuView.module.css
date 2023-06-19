@@ -1,4 +1,4 @@
-.container, * {
+.container, .container:where(p) {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -18,8 +18,10 @@
 
 .navbar {
   padding: 0.2rem 1rem 0.2rem 1rem;
-  background-color: darkcyan;
+  background-color: #FFFFFF;
   height: var(--navbar-height);
+  z-index: 100;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.06);
 }
 
 .navbarFixedTop {
