@@ -45,6 +45,13 @@ const MENU_DEMO = [
     to: '/signIn',
     icon: <BsBank/>,
     subMenus: undefined
+  },
+  {
+    id: 'transactions',
+    name: 'Transactions',
+    to: '/signIn',
+    icon: <BsBank/>,
+    subMenus: undefined
   }
 ]
 

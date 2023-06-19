@@ -136,9 +136,7 @@ const MenuView = () => {
           <div className={`${css.sidebarViewpoint}`}>
             <div className={`${css.sidebarViewpointAdjustment}`}>
               <nav className={`${css.menu}`}>
-                <ul>
-                  <li><a href='/#' onClick={sendMoney}>Send Money</a></li>
-                </ul>
+                <SideNav style={{width: '100%'}}/>
               </nav>
             </div>
           </div>

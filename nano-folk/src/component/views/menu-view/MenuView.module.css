@@ -1,14 +1,15 @@
-.container, .container * {
+.container, * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color: #000;
 }
 
 .container {
   --navbar-height: 3.75rem;
   --navSidebar-width: 55vw;
   --transition-duration: 0.5s;
+  --sidebar-width: 320px;
+
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -78,7 +79,7 @@
   display: none;
   margin-top: calc(var(--navbar-height)*-1);
   border-right: 2px solid wheat;
-  width: 300px;
+  width: var(--sidebar-width);
   display: none;
 }
 
