@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import InputGroup from 'react-bootstrap/InputGroup'
 
-const TransferDetails = () => {
+const TransferDetails = ({state, dispatch}) => {
   return (
     <>
       <h4 style={{textAlign: 'center'}}>Transfer Details</h4>
@@ -14,11 +14,14 @@ const TransferDetails = () => {
           controlId="sourceAccount"
         >
           <Form.Label>From</Form.Label>
-          <Form.Select>
-            <option>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+          <Form.Select 
+            value={state.sourceAccount}
+            onChange={e => dispatch({type: 'setSourceAccount', value: e.target.value})}
+          >
+            <option value="" disabled={state.sourceAccount !== ""}>Open this select menu</option>
+            <option value="sa1">One</option>
+            <option value="sa2">Two</option>
+            <option value="sa3">Three</option>
           </Form.Select>
         </Form.Group>
         <Form.Group
@@ -27,11 +30,14 @@ const TransferDetails = () => {
         >
           <Form.Label>Send to</Form.Label>
           <InputGroup>
-            <Form.Select>
-              <option>Select Contact</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <Form.Select
+            value={state.destinationAccount}
+            onChange={e => dispatch({type: 'setDestinationAccount', value: e.target.value})}
+            >
+              <option disabled={state.destinationAccount !== ""}>Select Contact</option>
+              <option value="da1">One</option>
+              <option value="da2">Two</option>
+              <option value="da3">Three</option>
             </Form.Select>
             <Button variant="outline-primary">New Contact</Button>
           </InputGroup>
@@ -43,7 +49,7 @@ const TransferDetails = () => {
           <Form.Label>You Send</Form.Label>
           <InputGroup>
             <InputGroup.Text>CAD</InputGroup.Text>
-            <Form.Control type="number"/>
+            <Form.Control type="number" value={state.amount} onChange={e => dispatch({type: 'setAmount', value: e.target.value})}/>
           </InputGroup>
         </Form.Group>
         <Form.Group
@@ -84,7 +90,7 @@ const TransferDetails = () => {
   )
 }
 
-const TransactionPurpose = () => {
+const TransactionPurpose = ({state, dispatch}) => {
   return (
     <>
       <h4 style={{textAlign: 'center'}}>Transaction Purpose</h4>
@@ -93,11 +99,14 @@ const TransactionPurpose = () => {
           controlId="transactionPurpose"
         >
           <Form.Label>Purpose</Form.Label>
-          <Form.Select>
-            <option>Choose a transaction purpose</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+          <Form.Select
+            value={state.transactionPurpose}
+            onChange={e => dispatch({type: 'setTransactionPurpose', value: e.target.value})}
+          >
+            <option disabled={state.transactionPurpose !== ""}>Choose a transaction purpose</option>
+            <option value="tp1">One</option>
+            <option value="tp2">Two</option>
+            <option value="tp3">Three</option>
           </Form.Select>
         </Form.Group>
       </Form>
@@ -105,11 +114,36 @@ const TransactionPurpose = () => {
   )
 }
 
-const SendMoneyModal = ({show, handleClose}) => {
-  const { step, goTo, isFirstStep, isLastStep, back, next } = useMultistepForm([<TransferDetails/>, <TransactionPurpose/>]);
-  const state = {
-
+function sendMoneyReducer(state, action) {
+  switch ( action.type ) {
+    case 'setSourceAccount':
+      return { ...state, sourceAccount: action.value };
+    case 'setDestinationAccount':
+      return { ...state, destinationAccount: action.value };
+    case 'setAmount':
+      return { ...state, amount: action.value };
+    case 'setTransactionPurpose':
+      return { ...state, transactionPurpose: action.value };
+    case 'cleanState':
+      return Initial_State;
+    default:
+      return state;
   }
+}
+
+const Initial_State = {
+  sourceAccount: "",
+  destinationAccount: "",
+  amount: 0.0,
+  currency: 'CAD',
+  transactionPurpose: ""
+}
+
+const SendMoneyModal = ({show, handleClose}) => {
+
+  const [state, dispatch] = useReducer(sendMoneyReducer, {...Initial_State});
+
+  const { step, goTo, isFirstStep, isLastStep, back, next } = useMultistepForm([<TransferDetails state={state} dispatch={dispatch}/>, <TransactionPurpose state={state} dispatch={dispatch}/>]);
 
   const handleSubmit = async _ => {
     //TODO: frozen button
@@ -122,6 +156,7 @@ const SendMoneyModal = ({show, handleClose}) => {
   const closeModal = _ => {
     goTo(0);
     handleClose();
+    dispatch({type: 'cleanState'})
   }
   return (
     <>
