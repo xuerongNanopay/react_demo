@@ -11,3 +11,22 @@
     --bs-modal-width: 570px !important;
   }
 }
+
+.sendMoneyReviewTransfer {
+  --bs-card-spacer-y: 1.4rem !important;
+  --bs-card-spacer-x: 1.4rem !important;
+  margin: 1rem auto 0;
+  width: 85%;
+  border: 1px solid #d8dce8;
+  border-top: 6px solid #1A6B54;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.sendMoneyReviewDetail {
+  --bs-card-spacer-y: 1.4rem !important;
+  --bs-card-spacer-x: 1.4rem !important;
+  margin: 1rem auto 0;
+  width: 85%;
+  border: 1px solid #d8dce8;
+}

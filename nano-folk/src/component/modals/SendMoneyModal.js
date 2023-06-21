@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import InputGroup from 'react-bootstrap/InputGroup'
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import Card from 'react-bootstrap/Card';
 
 import css from './SendMoneyModal.module.css'
 
@@ -120,7 +121,42 @@ const TransactionPurpose = ({state, dispatch}) => {
 const SendMoneyReview = ({state, dispatch}) => {
   return (
     <>
-      <div>aaaaa</div>
+      <h4 style={{textAlign: 'center'}}>Review Your Transfer</h4>
+      <Card.Body className={`${css.sendMoneyReviewTransfer}`}>
+        <div style={{display: 'flex',justifyContent: 'space-between'}}>
+          <span>From</span> 
+          <span>TODO: From Acc</span>
+        </div>
+        <div style={{display: 'flex',justifyContent: 'space-between'}}>
+          <span>To</span> 
+          <span >TODO: To acc</span>
+        </div>
+        <div style={{display: 'flex',justifyContent: 'space-between'}}>
+          <span>Amount Debited</span> 
+          <span style={{color: '#1A6B54'}}>$19.22 CAD</span>
+        </div>
+        <div style={{display: 'flex',justifyContent: 'space-between'}}>
+          <span>Amount Recipient Receives</span> 
+          <span style={{color: '#1A6B54'}}>2,260.17 PKR</span>
+        </div>
+      </Card.Body>
+      <Card.Body className={`${css.sendMoneyReviewDetail}`}>
+        <Card.Header><h6>Details</h6></Card.Header>
+        <Card.Text>
+          <div style={{display: 'flex',justifyContent: 'space-between'}}>
+            <span>Transaction Fee</span> 
+            <span >$8.22 CAD</span>
+          </div>
+          <div style={{display: 'flex',justifyContent: 'space-between'}}>
+            <span>Reference Number</span> 
+            <span>NP001547298413</span>
+          </div>
+          <div style={{display: 'flex',justifyContent: 'space-between'}}>
+            <span>FX Rate Applied</span> 
+            <span>$1.00 CAD : 205.47 PKR</span>
+          </div>
+        </Card.Text>
+      </Card.Body>
     </>
   )
 }
@@ -158,10 +194,6 @@ const SendMoneyModal = ({show, handleClose}) => {
   const flows = [<TransferDetails state={state} dispatch={dispatch}/>, <TransactionPurpose state={state} dispatch={dispatch}/>, <SendMoneyReview />];
 
   const { step, steps, curIndex, goTo, isFirstStep, isLastStep, back, next } = useMultistepForm(flows);
-
-  useEffect(() => {
-    console.log("userEffect")
-  }, [])
 
   const handleSubmit = async _ => {
     //TODO: frozen button
@@ -242,3 +274,16 @@ const useMultistepForm = (steps) => {
 }
 
 export default SendMoneyModal;
+export const useSendMoneyModal = _ => {
+  const [show, setShow] = useState(false);
+  const handleClose = (e) => {
+    setShow(false)
+  };
+  const handleShow = () => setShow(true);
+  const Modal = <SendMoneyModal show={show} handleClose={handleClose}/>
+
+  return [
+    handleShow,
+    Modal
+  ]
+}

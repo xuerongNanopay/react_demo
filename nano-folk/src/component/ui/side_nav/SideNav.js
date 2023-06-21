@@ -8,6 +8,8 @@ import {
 import { BsBank } from "react-icons/bs";
 
 import { useState } from 'react'
+import { useSendMoneyModal } from 'component/modals/SendMoneyModal';
+
 
 const MENU_DEMO = [
   {
@@ -29,6 +31,7 @@ const MENU_DEMO = [
     id: 'sendMoney',
     name: 'Send Money',
     to: '/signIn',
+    useModal: useSendMoneyModal,
     icon: <BsBank/>,
     subMenus: undefined
   },
@@ -97,16 +100,20 @@ const Menu = ({menus}) => {
 const MenuItemController = ({item}) => {  
   return (
     <div>
-      { !! item.subMenus ?  <SubMenu subMenu={item} /> : <NavItem navItem={item} /> }
+      { !! item.subMenus ?  <SubMenu subMenu={item} /> : <NavItemAdaptor navItem={item} /> }
     </div>
   )
+}
+
+const NavItemAdaptor = ({navItem}) => {
+  if ( ! navItem.useModal ) return <NavItem navItem={navItem}/>
+  else return <NavItemModal navItem={navItem}/>
 }
 
 const NavItem = ({navItem}) => {
   const navigate = useNavigate();
 
   const onNav = e => {
-    e.stopPropagation();
     e.preventDefault();
     navigate(navItem.to);
   }
@@ -124,6 +131,30 @@ const NavItem = ({navItem}) => {
         {navItem.icon}
         <h5 style={{marginLeft: '0.5rem'}}>{navItem.name}</h5>
       </a>
+    </>
+  )
+}
+const NavItemModal = ({navItem}) => {
+  const [ handleShow, Modal ] = navItem.useModal();
+  const handleClick = e => {
+    e.preventDefault();
+    handleShow();
+  }
+  return (
+    <>
+      <a
+        href="/#"
+        style={{
+          display: 'flex',
+          alignItems: 'center'
+        }}
+        className={`${css.selectableItem} ${css.animePaddingLeft} ${css.navItem}`}
+        onClick={handleClick}
+      >
+        {navItem.icon}
+        <h5 style={{marginLeft: '0.5rem'}}>{navItem.name}</h5>
+      </a>
+      {Modal}
     </>
   )
 }

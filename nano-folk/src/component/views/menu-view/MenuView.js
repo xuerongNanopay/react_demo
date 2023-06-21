@@ -143,8 +143,8 @@ const MenuView = () => {
         <aside className={`${css.sidebarContainer}`}>
           <div className={`${css.sidebarViewpoint}`}>
             <div className={`${css.sidebarViewpointAdjustment}`}>
-              <nav className={`${css.menu}`}>
-                <SideNav style={{width: '100%'}}/>
+              <nav className={`${css.menu}`} style={{height: '100%'}}>
+                <SideNav style={{width: '100%', height: '100%'}}/>
               </nav>
             </div>
           </div>
