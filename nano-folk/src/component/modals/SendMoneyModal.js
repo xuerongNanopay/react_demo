@@ -145,6 +145,10 @@ const SendMoneyModal = ({show, handleClose}) => {
 
   const { step, goTo, isFirstStep, isLastStep, back, next } = useMultistepForm([<TransferDetails state={state} dispatch={dispatch}/>, <TransactionPurpose state={state} dispatch={dispatch}/>]);
 
+  useEffect(() => {
+    console.log("userEffect")
+  }, [])
+
   const handleSubmit = async _ => {
     //TODO: frozen button
     // do submit
@@ -171,7 +175,7 @@ const SendMoneyModal = ({show, handleClose}) => {
         <Modal.Header closeButton>
           <Modal.Title>Send Money</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body style={{minHeight: '60vh', overflowY: 'scroll'}}>
           {step}
         </Modal.Body>
         <Modal.Footer>
