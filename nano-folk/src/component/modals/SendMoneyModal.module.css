@@ -1,0 +1,7 @@
+.sendMoneyModalContainer {
+  --bs-modal-header-border-width: 0px;
+}
+
+.progressBarRefactor {
+  --bs-progress-height: 1px;
+}

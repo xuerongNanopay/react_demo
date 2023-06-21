@@ -4,6 +4,9 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import InputGroup from 'react-bootstrap/InputGroup'
+import ProgressBar from 'react-bootstrap/ProgressBar';
+
+import css from './SendMoneyModal.module.css'
 
 const TransferDetails = ({state, dispatch}) => {
   return (
@@ -143,7 +146,7 @@ const SendMoneyModal = ({show, handleClose}) => {
 
   const [state, dispatch] = useReducer(sendMoneyReducer, {...Initial_State});
 
-  const { step, goTo, isFirstStep, isLastStep, back, next } = useMultistepForm([<TransferDetails state={state} dispatch={dispatch}/>, <TransactionPurpose state={state} dispatch={dispatch}/>]);
+  const { step, steps, curIndex, goTo, isFirstStep, isLastStep, back, next } = useMultistepForm([<TransferDetails state={state} dispatch={dispatch}/>, <TransactionPurpose state={state} dispatch={dispatch}/>]);
 
   useEffect(() => {
     console.log("userEffect")
@@ -162,6 +165,7 @@ const SendMoneyModal = ({show, handleClose}) => {
     handleClose();
     dispatch({type: 'cleanState'})
   }
+
   return (
     <>
       <Modal 
@@ -171,10 +175,12 @@ const SendMoneyModal = ({show, handleClose}) => {
         backdrop='static'
         fullscreen='sm-down'
         size='lg'
+        className={`${css.sendMoneyModalContainer}`}
       >
         <Modal.Header closeButton>
           <Modal.Title>Send Money</Modal.Title>
         </Modal.Header>
+        <ProgressBar className={`${css.progressBarRefactor}`} min={0} max={steps.length} now={curIndex+1} />
         <Modal.Body style={{minHeight: '60vh', overflowY: 'scroll'}}>
           {step}
         </Modal.Body>
