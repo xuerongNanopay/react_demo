@@ -27,7 +27,7 @@ const App = _ => {
         <Route path="/user" element={<MainMenu/>}/>
         <Route path="/verifyEmail" element={<VerifyEmail/>}/>
         <Route path="/test" element={<SlideMenu />} />
-        <Route path="/mainMenu" element={<MainMenu />} />
+        <Route path="/mainMenu/*" element={<MainMenu />}></Route>
         <Route path="/flinks" element={<FlinksIframe />} />
         <Route path="*" element={<div>PageNotFound</div>}/>
 

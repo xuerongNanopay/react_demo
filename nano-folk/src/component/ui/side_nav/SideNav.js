@@ -38,7 +38,7 @@ const MENU_DEMO = [
   {
     id: 'contacts',
     name: 'Contacts',
-    to: '/signIn',
+    to: 'contact',
     icon: <BsBank/>,
     subMenus: undefined
   },
@@ -52,7 +52,7 @@ const MENU_DEMO = [
   {
     id: 'transactions',
     name: 'Transactions',
-    to: '/signIn',
+    to: 'transaction',
     icon: <BsBank/>,
     subMenus: undefined
   }

@@ -1,16 +1,16 @@
 import { useEffect, useState, useRef } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import css from './MainMenu.module.css'
 
 import { BsBell } from "react-icons/bs";
 
 import SideNav from 'component/ui/side_nav/SideNav';
 import nbp_logo from 'image/nbp_foree_remittance_logo.svg'
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
-import InputGroup from 'react-bootstrap/InputGroup'
-
-import SendMoneyModal from 'component/modals/SendMoneyModal';
+import TransactionMenu from '../transaction-menu/TransactionMenu';
+import ContactMenu from '../contact-menu/ContactMenu';
+import NotificationMenu from '../notification-menu/NotificationMenu';
+import DashboardMenu from '../dashboard-menu/DashboardMenu';
+import AccountMenu from '../account-menu/AccountMenu';
 
 const MOBILE_SIZE = 997;
 const MainMenu = () => {
@@ -58,13 +58,6 @@ const MainMenu = () => {
       document.body.style.overflow = 'visible'
     }
   }, [showNavSideBar, toggleNavSideBar])
-
-  const sendMoney = e => {
-    e.preventDefault();
-    
-    console.log('Send Money');
-  }
-
 
   return (
     <div className={`${css.container}`}>
@@ -150,36 +143,14 @@ const MainMenu = () => {
           </div>
         </aside>
         <main>
-          <h1>#####</h1>
-          <SendMoneyModalButton></SendMoneyModalButton>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
-          <h1>AAAA</h1>
+          <Routes>
+            <Route index element={<Navigate to="transaction"/>}/>
+            <Route path="transaction" element={<TransactionMenu />}/>
+            <Route path="contact" element={<ContactMenu />}/>
+            <Route path="notification" element={<NotificationMenu />}/>
+            <Route path="dashboard" element={<DashboardMenu/>}/>
+            <Route path="account" element={<AccountMenu/>}/>
+          </Routes>
         </main>
       </div>
     </div>
@@ -232,25 +203,5 @@ const CloseIcon = () => {
   )
 }
 
-const SendMoneyModalButton = _ => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  return (
-    <>
-      <Button variant="primary" onClick={handleShow}>
-        Send Money
-      </Button>
-      <SendMoneyModal show={show} handleClose={handleClose}/>
-    </>
-  )
-}
-
-// const BellIcon = () => {
-//   return (<svg width="100%" viewBox="0 0 16 20" fill="/*%FILL%*/ #FFFFFF" xmlns="http://www.w3.org/2000/svg">
-//   <path d="M8 20C9.1 20 10 19.1 10 18H6C6 19.1 6.9 20 8 20ZM14 14V9C14 5.93 12.37 3.36 9.5 2.68V2C9.5 1.17 8.83 0.5 8 0.5C7.17 0.5 6.5 1.17 6.5 2V2.68C3.64 3.36 2 5.92 2 9V14L0 16V17H16V16L14 14ZM12 15H4V9C4 6.52 5.51 4.5 8 4.5C10.49 4.5 12 6.52 12 9V15Z"></path>
-//   </svg>)
-// }
 
 export default MainMenu

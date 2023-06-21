@@ -8,7 +8,7 @@
   --navbar-height: 3.75rem;
   --navSidebar-width: 55vw;
   --transition-duration: 0.5s;
-  --sidebar-width: 320px;
+  --sidebar-width: 260px;
 
   display: flex;
   flex-direction: column;
@@ -74,7 +74,10 @@
 .docWrapper {
   display: flex;
   flex: 1 0 auto;
-  background-color: red;
+}
+.docWrapper > main {
+  flex: 1 0 375px;
+  padding: 1rem 1.2rem;
 }
 
 .sidebarContainer {
