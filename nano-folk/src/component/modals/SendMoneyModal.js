@@ -117,6 +117,14 @@ const TransactionPurpose = ({state, dispatch}) => {
   )
 }
 
+const SendMoneyReview = ({state, dispatch}) => {
+  return (
+    <>
+      <div>aaaaa</div>
+    </>
+  )
+}
+
 function sendMoneyReducer(state, action) {
   switch ( action.type ) {
     case 'setSourceAccount':
@@ -139,14 +147,17 @@ const Initial_State = {
   destinationAccount: "",
   amount: 0.0,
   currency: 'CAD',
-  transactionPurpose: ""
+  transactionPurpose: "",
+  transactionQueryResponse: null
 }
 
 const SendMoneyModal = ({show, handleClose}) => {
 
   const [state, dispatch] = useReducer(sendMoneyReducer, {...Initial_State});
 
-  const { step, steps, curIndex, goTo, isFirstStep, isLastStep, back, next } = useMultistepForm([<TransferDetails state={state} dispatch={dispatch}/>, <TransactionPurpose state={state} dispatch={dispatch}/>]);
+  const flows = [<TransferDetails state={state} dispatch={dispatch}/>, <TransactionPurpose state={state} dispatch={dispatch}/>, <SendMoneyReview />];
+
+  const { step, steps, curIndex, goTo, isFirstStep, isLastStep, back, next } = useMultistepForm(flows);
 
   useEffect(() => {
     console.log("userEffect")

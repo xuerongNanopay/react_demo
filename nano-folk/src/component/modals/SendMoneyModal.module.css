@@ -1,7 +1,13 @@
 .sendMoneyModalContainer {
-  --bs-modal-header-border-width: 0px;
+  --bs-modal-header-border-width: 0px !important;
 }
 
 .progressBarRefactor {
-  --bs-progress-height: 1px;
+  --bs-progress-height: 1px !important;
+}
+
+@media (min-width: 575.98px) {
+  .sendMoneyModalContainer > div{
+    --bs-modal-width: 500px !important;
+  }
 }
