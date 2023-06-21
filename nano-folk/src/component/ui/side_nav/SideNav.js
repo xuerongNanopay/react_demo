@@ -15,22 +15,13 @@ const MENU_DEMO = [
   {
     id: 'dashboard',
     name: 'Dashboard',
-    to: '/signIn',
+    to: 'dashboard',
     icon: <BsBank/>,
-    handler: () => {console.log("TODO: handler")},
-    subMenus: [
-      {
-        id: 'rate',
-        name: 'Rate',
-        to: '/signIn',
-        icon: <BsBank/>
-      }
-    ]
+    handler: () => {console.log("TODO: handler")}
   },
   {
     id: 'sendMoney',
     name: 'Send Money',
-    to: '/signIn',
     useModal: useSendMoneyModal,
     icon: <BsBank/>,
     subMenus: undefined
@@ -45,7 +36,7 @@ const MENU_DEMO = [
   {
     id: 'myAccounts',
     name: 'My Accounts',
-    to: '/signIn',
+    to: 'account',
     icon: <BsBank/>,
     subMenus: undefined
   },

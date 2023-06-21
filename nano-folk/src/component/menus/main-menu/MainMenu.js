@@ -1,5 +1,8 @@
 import { useEffect, useState, useRef } from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
+// import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import css from './MainMenu.module.css'
 
 import { BsBell } from "react-icons/bs";
@@ -11,8 +14,11 @@ import ContactMenu from '../contact-menu/ContactMenu';
 import NotificationMenu from '../notification-menu/NotificationMenu';
 import DashboardMenu from '../dashboard-menu/DashboardMenu';
 import AccountMenu from '../account-menu/AccountMenu';
+import ChangepasswdMenu from '../changepasswd-menu/ChangepasswdMenu';
 
 const MOBILE_SIZE = 997;
+
+//TODO: userContext to store user data.
 const MainMenu = () => {
   const [ showNavSideBar, setShowNavSideBar ] = useState(false);
   const [ toggleNavSideBar, setToggleNavSiedBar] = useState(false);
@@ -20,6 +26,8 @@ const MainMenu = () => {
 
   const navSideBarRef = useRef();
   const navSideBarToggleButtonRef = useRef();
+
+  const navigate = useNavigate();
 
   useEffect( _ => {
     const handleResize = _ => {
@@ -59,6 +67,11 @@ const MainMenu = () => {
     }
   }, [showNavSideBar, toggleNavSideBar])
 
+  const navNotification = e => {
+    e.preventDefault();
+    navigate('notification');
+  }
+
   return (
     <div className={`${css.container}`}>
       <nav className={`${css.navbar} ${css.navbarFixedTop}`}>
@@ -76,8 +89,19 @@ const MainMenu = () => {
             <img src={nbp_logo} alt="logo"/>
           </div>
           <div className={`${css.navBarItems} ${css.navBarItemsRight}`}>
-            <a href='/#' className={`${css.navBarItem}`}><BsBell size={22} /></a>
-            <a href='/#' className={`${css.navBarItem}`}>Drop Down</a>
+            <a href='/#' className={`${css.navBarItem}`} onClick={navNotification}><BsBell size={22} /></a>
+            <Nav>
+              <NavDropdown
+                className="me-2"
+                title="Miumiu Wu"
+              >
+                {/* inset: 16px -30px auto auto; */}
+                <NavDropdown.Item href="#" onClick={e => {e.preventDefault(); navigate('changepasswd');}}>Change Password</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Contact Support</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Legal</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Sign out</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
           </div>
         </div>
         <div className={`${css.navSideBarBackDrop} ${toggleNavSideBar ? css.navSideBarBackDropShow : ''}`}></div>
@@ -144,12 +168,13 @@ const MainMenu = () => {
         </aside>
         <main>
           <Routes>
-            <Route index element={<Navigate to="transaction"/>}/>
+            <Route index element={<Navigate to="dashboard"/>}/>
             <Route path="transaction" element={<TransactionMenu />}/>
             <Route path="contact" element={<ContactMenu />}/>
             <Route path="notification" element={<NotificationMenu />}/>
             <Route path="dashboard" element={<DashboardMenu/>}/>
             <Route path="account" element={<AccountMenu/>}/>
+            <Route path="changepasswd" element={<ChangepasswdMenu/>}/>
           </Routes>
         </main>
       </div>

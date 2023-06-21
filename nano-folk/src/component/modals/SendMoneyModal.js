@@ -1,4 +1,6 @@
-import { useEffect, useState, useReducer } from 'react'
+import { useState, useReducer } from 'react';
+
+import { useNavigate } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -142,20 +144,18 @@ const SendMoneyReview = ({state, dispatch}) => {
       </Card.Body>
       <Card.Body className={`${css.sendMoneyReviewDetail}`}>
         <Card.Header><h6>Details</h6></Card.Header>
-        <Card.Text>
-          <div style={{display: 'flex',justifyContent: 'space-between'}}>
-            <span>Transaction Fee</span> 
-            <span >$8.22 CAD</span>
-          </div>
-          <div style={{display: 'flex',justifyContent: 'space-between'}}>
-            <span>Reference Number</span> 
-            <span>NP001547298413</span>
-          </div>
-          <div style={{display: 'flex',justifyContent: 'space-between'}}>
-            <span>FX Rate Applied</span> 
-            <span>$1.00 CAD : 205.47 PKR</span>
-          </div>
-        </Card.Text>
+        <div style={{display: 'flex',justifyContent: 'space-between'}}>
+          <span>Transaction Fee</span> 
+          <span >$8.22 CAD</span>
+        </div>
+        <div style={{display: 'flex',justifyContent: 'space-between'}}>
+          <span>Reference Number</span> 
+          <span>NP001547298413</span>
+        </div>
+        <div style={{display: 'flex',justifyContent: 'space-between'}}>
+          <span>FX Rate Applied</span> 
+          <span>$1.00 CAD : 205.47 PKR</span>
+        </div>
       </Card.Body>
     </>
   )
@@ -195,18 +195,23 @@ const SendMoneyModal = ({show, handleClose}) => {
 
   const { step, steps, curIndex, goTo, isFirstStep, isLastStep, back, next } = useMultistepForm(flows);
 
+  const navigate = useNavigate();
+
+
   const handleSubmit = async _ => {
     //TODO: frozen button
     // do submit
     // spinning page
     // clean state and close modal
+    closeModal();
   }
 
   //Clean state and reset form step to 0
   const closeModal = _ => {
     goTo(0);
     handleClose();
-    dispatch({type: 'cleanState'})
+    dispatch({type: 'cleanState'});
+    navigate('/mainMenu/transaction');
   }
 
   return (
@@ -230,7 +235,7 @@ const SendMoneyModal = ({show, handleClose}) => {
         <Modal.Footer>
           { !isFirstStep && <Button variant="primary" onClick={back}>back</Button> }
           { !isLastStep && <Button variant="primary" onClick={next}>next</Button> }
-          { isLastStep && <Button variant="primary" onClick={closeModal}>submit</Button> }
+          { isLastStep && <Button variant="primary" onClick={handleSubmit}>submit</Button> }
         </Modal.Footer>
       </Modal>
     </>
