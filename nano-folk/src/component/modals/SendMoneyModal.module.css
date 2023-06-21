@@ -30,3 +30,18 @@
   width: 85%;
   border: 1px solid #d8dce8;
 }
+
+@media (max-width: 575.98px) {
+  .sendMoneyReviewTransfer {
+    --bs-card-spacer-y: 0.4rem !important;
+    --bs-card-spacer-x: 0.4rem !important;
+    width: 100%;
+    margin: 0.4rem auto 0;
+  }
+  .sendMoneyReviewDetail {
+    --bs-card-spacer-y: 0.4rem !important;
+    --bs-card-spacer-x: 0.4rem !important;
+    width: 100%;
+    margin: 0.4rem auto 0;
+  }
+}

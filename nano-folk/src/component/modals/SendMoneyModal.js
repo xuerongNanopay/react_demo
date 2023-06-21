@@ -89,7 +89,7 @@ const TransferDetails = ({state, dispatch}) => {
         </div>
         <div style={{display: 'flex',justifyContent: 'space-between', fontWeight: '600'}}>
           <span>Amount To Be Debited</span> 
-          <span>$9.22 CAD</span>
+          <span>$111119.22 CAD</span>
         </div>
       </div>
     </>
