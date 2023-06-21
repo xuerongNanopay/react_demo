@@ -3,12 +3,10 @@
 
 import SignIn from './component/unauth/SignIn'
 import SignUp from './component/unauth/SignUp'
-import MainMenu from './component/auth'
 import ForgetPassword from './component/unauth/ForgetPassword'
 import VerifyEmail from './component/unauth/VerifyEmail'
-import UserApp from 'component/auth'
 import SlideMenu from 'component/ui/side_nav/SideNav'
-import MenuView from 'component/views/menu-view/MenuView'
+import MainMenu from 'component/menus/main-menu/MainMenu'
 import FlinksIframe from 'component/flinks/flinks'
 
 import {
@@ -28,9 +26,8 @@ const App = _ => {
         <Route path="/forgetPassword" element={<ForgetPassword />} />
         <Route path="/user" element={<MainMenu/>}/>
         <Route path="/verifyEmail" element={<VerifyEmail/>}/>
-        <Route path="/user" element={<UserApp/>}/>
         <Route path="/test" element={<SlideMenu />} />
-        <Route path="/menu-view" element={<MenuView />} />
+        <Route path="/mainMenu" element={<MainMenu />} />
         <Route path="/flinks" element={<FlinksIframe />} />
         <Route path="*" element={<div>PageNotFound</div>}/>
 

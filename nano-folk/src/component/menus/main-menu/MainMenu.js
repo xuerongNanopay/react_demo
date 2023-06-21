@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
-import css from './MenuView.module.css'
+import css from './MainMenu.module.css'
 
 import { BsBell } from "react-icons/bs";
 
@@ -13,7 +13,7 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import SendMoneyModal from 'component/modals/SendMoneyModal';
 
 const MOBILE_SIZE = 997;
-const MenuView = () => {
+const MainMenu = () => {
   const [ showNavSideBar, setShowNavSideBar ] = useState(false);
   const [ toggleNavSideBar, setToggleNavSiedBar] = useState(false);
   const [ nextNavSideBarMenu, setNextNavSideBarMenu ] = useState(false);
@@ -253,4 +253,4 @@ const SendMoneyModalButton = _ => {
 //   </svg>)
 // }
 
-export default MenuView
+export default MainMenu
