@@ -80,6 +80,12 @@
   padding: 1rem 1.2rem;
 }
 
+@media (max-width: 375px) {
+  .docWrapper > main {
+    padding: 1rem 0.5rem;
+  }
+}
+
 .sidebarContainer {
   display: none;
   margin-top: calc(var(--navbar-height)*-1);
