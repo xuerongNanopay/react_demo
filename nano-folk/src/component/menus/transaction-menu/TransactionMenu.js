@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { MaterialReactTable } from 'material-react-table';
 import { Box, Button, ListItemIcon, MenuItem, Typography } from '@mui/material';
 
@@ -7,7 +8,7 @@ import css from './TransactionMenu.module.css'
 
 const ExampleData = Array(50).fill(null).map(_ => (
   {
-    id: 'transactionId',
+    id: 'AAAAAAA',
     transactionSummary: '$19.22 → 2,260.17 | John Doe → TTTT PK90NBPA0002003000207384 Test',
     amount: '222,222,260.17 PKR',
     created: '6/19/2023, 2:33:58 PM',
@@ -16,6 +17,7 @@ const ExampleData = Array(50).fill(null).map(_ => (
 ));
 
 const TransactionMenu = _ => {
+  const navigate = useNavigate();
   const columns = useMemo(
     () => [
       {
@@ -127,9 +129,7 @@ const TransactionMenu = _ => {
             }}
             muiTableBodyRowProps={({ row }) => ({
               onClick: (event) => {
-                // console.info(event, row.original);
-                console.info(row.original);
-                alert('TODO: findByTransactionId')
+                navigate(row.original.id);
               },
               sx: {
                 cursor: 'pointer', //you might want to change the cursor too when adding an onClick

@@ -15,6 +15,7 @@ import NotificationMenu from '../notification-menu/NotificationMenu';
 import DashboardMenu from '../dashboard-menu/DashboardMenu';
 import AccountMenu from '../account-menu/AccountMenu';
 import ChangepasswdMenu from '../changepasswd-menu/ChangepasswdMenu';
+import TransactionDetail from '../transaction-menu/TransactionDetail';
 
 const MOBILE_SIZE = 997;
 
@@ -172,7 +173,11 @@ const MainMenu = () => {
         }}>
           <Routes>
             <Route index element={<Navigate to="dashboard"/>}/>
-            <Route path="transaction" element={<TransactionMenu />}/>
+            <Route path="transaction">
+              <Route index element={<TransactionMenu />} />
+              <Route path=":transactionId" element={<TransactionDetail/>}/>
+              <Route path="*" element={<Navigate to=".."/>}/>
+            </Route>
             <Route path="contact" element={<ContactMenu />}/>
             <Route path="notification" element={<NotificationMenu />}/>
             <Route path="dashboard" element={<DashboardMenu/>}/>
