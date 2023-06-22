@@ -3,7 +3,3 @@
   height: 100%;
   background-color: aliceblue;
 }
-
-.tableText tr td {
-  word-break: break-word;
-}
