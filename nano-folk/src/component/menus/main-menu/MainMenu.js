@@ -166,7 +166,9 @@ const MainMenu = () => {
             </div>
           </div>
         </aside>
-        <main>
+        <main style={{
+          width: '100%',
+        }}>
           <Routes>
             <Route index element={<Navigate to="dashboard"/>}/>
             <Route path="transaction" element={<TransactionMenu />}/>
