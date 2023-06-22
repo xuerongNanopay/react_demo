@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
 }
 
 .navbar {
@@ -89,7 +89,7 @@
 .sidebarContainer {
   display: none;
   margin-top: calc(var(--navbar-height)*-1);
-  border-right: 2px solid wheat;
+  /* border-right: 2px solid wheat; */
   width: var(--sidebar-width);
   display: none;
 }

@@ -168,6 +168,7 @@ const MainMenu = () => {
         </aside>
         <main style={{
           width: '100%',
+          background: '#f0f0f0'
         }}>
           <Routes>
             <Route index element={<Navigate to="dashboard"/>}/>
