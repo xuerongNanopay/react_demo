@@ -1,11 +1,11 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { MaterialReactTable } from 'material-react-table';
 import { Box, Button, ListItemIcon, MenuItem, Typography } from '@mui/material';
 
 
 import css from './TransactionMenu.module.css'
 
-const data = Array(50).fill(null).map(_ => (
+const ExampleData = Array(50).fill(null).map(_ => (
   {
     id: 'transactionId',
     transactionSummary: '$19.22 → 2,260.17 | John Doe → TTTT PK90NBPA0002003000207384 Test',
@@ -62,6 +62,7 @@ const TransactionMenu = _ => {
   );
 
   //table state
+  const [data, setData] = useState(ExampleData);
   const [columnFilters, setColumnFilters] = useState([]);
   const [globalFilter, setGlobalFilter] = useState('');
   const [sorting, setSorting] = useState([]);
@@ -69,6 +70,19 @@ const TransactionMenu = _ => {
     pageIndex: 0,
     pageSize: 10,
   });
+  useEffect(() => {
+    console.log('columnFilters', columnFilters);
+    console.log('globalFilter', globalFilter);
+    console.log('pagination.pageIndex', pagination.pageIndex);
+    console.log('pagination.pageSize', pagination.pageSize);
+    console.log('sorting', sorting);
+  }, [
+    columnFilters,
+    globalFilter,
+    pagination.pageIndex,
+    pagination.pageSize,
+    sorting,
+  ]);
 
   return (
     <>
@@ -107,7 +121,7 @@ const TransactionMenu = _ => {
             onColumnOrderChange={e => console.log('onColumnOrderChange',e)}
             initialState={{ density: 'spacious' }}
             muiTablePaginationProps={{
-              rowsPerPageOptions: [10, 20],
+              rowsPerPageOptions: [5, 10, 20],
               // showFirstButton: true,
               // showLastButton: true,
             }}
@@ -120,7 +134,22 @@ const TransactionMenu = _ => {
               sx: {
                 cursor: 'pointer', //you might want to change the cursor too when adding an onClick
               },
+              
             })}
+            onColumnFiltersChange={setColumnFilters}
+            onGlobalFilterChange={setGlobalFilter}
+            onPaginationChange={setPagination}
+            onSortingChange={setSorting}
+            // rowCount={rowCount}
+            state={{
+              columnFilters,
+              globalFilter,
+              // isLoading,
+              pagination,
+              // showAlertBanner: isError,
+              // showProgressBars: isRefetching,
+              sorting,
+            }}
           />
         </div>
       </div>
