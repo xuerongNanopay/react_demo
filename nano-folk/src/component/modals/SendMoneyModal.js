@@ -1,3 +1,4 @@
+//TODO: thinking maybe using Class component is a better approach for modal?
 import { useState, useReducer, useEffect } from 'react';
 
 import { useNavigate } from 'react-router-dom';
