@@ -1,4 +1,4 @@
-import { useState, useReducer } from 'react';
+import { useState, useReducer, useEffect } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -12,6 +12,12 @@ import Card from 'react-bootstrap/Card';
 import css from './SendMoneyModal.module.css'
 
 const TransferDetails = ({state, dispatch}) => {
+  const addNewAccount = e => {
+    alert("TODO: addNewAccount");
+  }
+  const addNewContact = e => {
+    alert("TODO: addNewAccount");
+  }
   return (
     <>
       <h4 style={{textAlign: 'center'}}>Transfer Details</h4>
@@ -30,7 +36,7 @@ const TransferDetails = ({state, dispatch}) => {
               <option value="sa2">Two</option>
               <option value="sa3">Three</option>
             </Form.Select>
-            <Button variant="outline-primary">New Account</Button>
+            <Button variant="outline-primary" type="button" onClick={addNewAccount}>New Account</Button>
           </InputGroup>
         </Form.Group>
         <Form.Group
@@ -48,7 +54,7 @@ const TransferDetails = ({state, dispatch}) => {
               <option value="da2">Two</option>
               <option value="da3">Three</option>
             </Form.Select>
-            <Button variant="outline-primary">New Contact</Button>
+            <Button variant="outline-primary" type="button" onClick={addNewContact}>New Contact</Button>
           </InputGroup>
         </Form.Group>
         <Form.Group
@@ -199,6 +205,13 @@ const SendMoneyModal = ({show, handleClose}) => {
   const { step, steps, curIndex, goTo, isFirstStep, isLastStep, back, next } = useMultistepForm(flows);
 
   const navigate = useNavigate();
+
+
+  useEffect(() => {
+    if ( curIndex === 0 && show ) {
+      console.log('SendMoneyModal Fetch accounts');
+    }
+  }, [curIndex, show])
 
 
   const handleSubmit = async _ => {
