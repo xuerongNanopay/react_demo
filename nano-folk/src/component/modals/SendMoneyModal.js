@@ -4,6 +4,8 @@ import { useState, useReducer, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import InputGroup from 'react-bootstrap/InputGroup'
@@ -37,7 +39,16 @@ const TransferDetails = ({state, dispatch}) => {
               <option value="sa2">Two</option>
               <option value="sa3">Three</option>
             </Form.Select>
-            <Button variant="outline-primary" type="button" onClick={addNewAccount}>New Account</Button>
+            {/* <OverlayTrigger
+              placement="left"
+              overlay={ <Tooltip>New Account</Tooltip>}
+            > */}
+              <Button 
+                variant="outline-primary" 
+                type="button" 
+                onClick={addNewAccount}
+              >+</Button>
+            {/* </OverlayTrigger> */}
           </InputGroup>
         </Form.Group>
         <Form.Group
@@ -55,7 +66,12 @@ const TransferDetails = ({state, dispatch}) => {
               <option value="da2">Two</option>
               <option value="da3">Three</option>
             </Form.Select>
-            <Button variant="outline-primary" type="button" onClick={addNewContact}>New Contact</Button>
+            {/* <OverlayTrigger
+              placement="left"
+              overlay={ <Tooltip>New Contact</Tooltip>}
+            > */}
+            <Button variant="outline-primary" type="button" onClick={addNewContact}>+</Button>
+            {/* </OverlayTrigger> */}
           </InputGroup>
         </Form.Group>
         <Form.Group
