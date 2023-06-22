@@ -1,6 +1,7 @@
-import { useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { MaterialReactTable } from 'material-react-table';
-import { Box } from '@mui/material';
+import { Box, Button, ListItemIcon, MenuItem, Typography } from '@mui/material';
+
 
 import css from './TransactionMenu.module.css'
 
@@ -60,6 +61,14 @@ const TransactionMenu = _ => {
     [],
   );
 
+  //table state
+  const [columnFilters, setColumnFilters] = useState([]);
+  const [globalFilter, setGlobalFilter] = useState('');
+  const [sorting, setSorting] = useState([]);
+  const [pagination, setPagination] = useState({
+    pageIndex: 0,
+    pageSize: 10,
+  });
 
   return (
     <>
@@ -71,6 +80,30 @@ const TransactionMenu = _ => {
             data={data}
             enableDensityToggle={false}
             enableColumnActions={false}
+            // positionActionsColumn='last'
+            // enableRowActions
+            // renderRowActionMenuItems={({ closeMenu }) => [
+            //   <MenuItem
+            //     key={0}
+            //     onClick={() => {
+            //       // View profile logic...
+            //       closeMenu();
+            //     }}
+            //     sx={{ m: 0 }}
+            //   >
+            //     View Profile
+            //   </MenuItem>,
+            //   <MenuItem
+            //     key={1}
+            //     onClick={() => {
+            //       // Send email logic...
+            //       closeMenu();
+            //     }}
+            //     sx={{ m: 0 }}
+            //   >
+            //     Send Email
+            //   </MenuItem>,
+            // ]}
             onColumnOrderChange={e => console.log('onColumnOrderChange',e)}
             initialState={{ density: 'spacious' }}
             muiTablePaginationProps={{
