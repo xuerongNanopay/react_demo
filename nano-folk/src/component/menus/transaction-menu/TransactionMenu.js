@@ -2,7 +2,6 @@ import Table from 'react-bootstrap/Table';
 
 import css from './TransactionMenu.module.css'
 
-
 const TransactionMenu = _ => {
   return (
     <>
