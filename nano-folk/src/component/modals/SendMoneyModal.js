@@ -20,15 +20,18 @@ const TransferDetails = ({state, dispatch}) => {
           controlId="sourceAccount"
         >
           <Form.Label>From</Form.Label>
-          <Form.Select 
-            value={state.sourceAccount}
-            onChange={e => dispatch({type: 'setSourceAccount', value: e.target.value})}
-          >
-            <option value="" disabled={state.sourceAccount !== ""}>Open this select menu</option>
-            <option value="sa1">One</option>
-            <option value="sa2">Two</option>
-            <option value="sa3">Three</option>
-          </Form.Select>
+          <InputGroup>
+            <Form.Select 
+              value={state.sourceAccount}
+              onChange={e => dispatch({type: 'setSourceAccount', value: e.target.value})}
+            >
+              <option value="" disabled={state.sourceAccount !== ""}>Open this select menu</option>
+              <option value="sa1">One dasfdffffffffff adsffffff adsffff ff ne dasfdffffffffff adsffffff adsffff ff ne dasfdffffffffff adsffffff adsffff ff</option>
+              <option value="sa2">Two</option>
+              <option value="sa3">Three</option>
+            </Form.Select>
+            <Button variant="outline-primary">New Account</Button>
+          </InputGroup>
         </Form.Group>
         <Form.Group
           className="mb-3"
