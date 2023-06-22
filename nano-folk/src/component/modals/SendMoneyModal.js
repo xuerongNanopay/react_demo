@@ -197,7 +197,7 @@ const Initial_State = {
   transactionQueryResponse: null
 }
 
-const SendMoneyModal = ({show, handleClose}) => {
+const SendMoneyModal = ({show, handleClose, reload}) => {
 
   const [state, dispatch] = useReducer(sendMoneyReducer, {...Initial_State});
 
@@ -209,10 +209,10 @@ const SendMoneyModal = ({show, handleClose}) => {
 
 
   useEffect(() => {
-    if ( curIndex === 0 && show ) {
+    if ( show ) {
       console.log('SendMoneyModal Fetch accounts');
     }
-  }, [curIndex, show])
+  }, [show, reload])
 
 
   const handleSubmit = async _ => {
@@ -298,14 +298,19 @@ const useMultistepForm = (steps) => {
 export default SendMoneyModal;
 export const useSendMoneyModal = _ => {
   const [show, setShow] = useState(false);
+  const [reload, setReload] = useState(0);
+  const refresh = () => {
+    setReload(i => i+1)
+  }
   const handleClose = (e) => {
     setShow(false)
   };
   const handleShow = () => setShow(true);
-  const Modal = <SendMoneyModal show={show} handleClose={handleClose}/>
+  const Modal = <SendMoneyModal  reload = {reload} show={show} handleClose={handleClose}/>
 
   return [
     handleShow,
-    Modal
+    Modal,
+    refresh
   ]
 }
